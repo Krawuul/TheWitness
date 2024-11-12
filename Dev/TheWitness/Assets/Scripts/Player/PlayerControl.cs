@@ -34,8 +34,14 @@ public class PlayerControl : MonoBehaviour
     private void OnEnable()
     {
         playerInputAction.InGame.Enable();
+
         playerInputAction.InGame.Sprint.started += (context) => speed = runSpeed;
         playerInputAction.InGame.Sprint.canceled += (context) => speed = walkSpeed;
+
+        /* Not final logic
+        playerInputAction.InGame.Interact.started += (context) => StartInteract(context, objectInSight);
+        playerInputAction.InGame.Interact.canceled += (context) => StopInteract(context, objectInSight);
+        */
     }
 
     private void OnDisable()
@@ -94,6 +100,19 @@ public class PlayerControl : MonoBehaviour
         }
 
         return null;
+    }
+
+    private void StartInteract(InputAction.CallbackContext _context, object _interactable)
+    {
+        // Stop camera + movement
+        // Start object interaction
+    }
+
+    private void StopInteract(InputAction.CallbackContext _context, object _interactable)
+    {
+        // Resume camera + movement
+        // Stop object interaction
+        // If object is collectable store it
     }
 
 #if UNITY_EDITOR
