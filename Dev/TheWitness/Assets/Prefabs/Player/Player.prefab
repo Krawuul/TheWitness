@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d502473dbfe1045becb0ac4a4f010e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 6
+  sensitivity: 0.3
   dampening: 24
   LimitY: 85
 --- !u!1 &8897255619119731608

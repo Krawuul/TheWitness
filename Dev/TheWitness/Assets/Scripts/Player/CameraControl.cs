@@ -31,11 +31,7 @@ public class CameraControl : MonoBehaviour
 
     private void SetInputs()
     {
-        float x = Input.GetAxisRaw("Mouse X");
-        float y = Input.GetAxisRaw("Mouse Y");
-
-        inputs.x = x;
-        inputs.y = y;
+        inputs = playerControl.InputAction.InGame.Camera.ReadValue<Vector2>();
     }
 
     private void Rotate()
