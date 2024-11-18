@@ -8,6 +8,7 @@ namespace Manager
     using TMPro;
 
     using Subtitle;
+    using Utils;
 
     [RequireComponent(typeof(Canvas))]
     [RequireComponent(typeof(CanvasScaler))]
@@ -139,8 +140,11 @@ namespace Manager
                 }
             }
 
+
             m_text.text = "";
             m_isSubtitleDisplayed = false;
+
+            EventsManager.instance.Active(_subtitle.idEventOnFinish);
         }
 
 

@@ -1,8 +1,11 @@
 namespace Subtitle
 {
+    using System;
     using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.Events;
 
-    [System.Serializable]
+    [Serializable]
     public class SubTitleData
     {
         public string id = "";
@@ -11,5 +14,7 @@ namespace Subtitle
         public bool canRepeat;
         public bool nextSentenceByTime;
         public bool canSkip;
+
+        public string idEventOnFinish;
     }
 }

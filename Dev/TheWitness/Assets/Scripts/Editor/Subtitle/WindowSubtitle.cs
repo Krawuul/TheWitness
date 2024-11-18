@@ -25,7 +25,7 @@ public class WindowSubtitle : EditorWindow
         sentence.time = 0;
         sentence.sentence = "";
         sentence.voiceLinePath = "";
-        sentence.timeForEachChar = 0.05f;
+        sentence.timeForEachChar = 1f;
 
         if(m_subTitleData.sentences == null) m_subTitleData.sentences = new List<SentenceData>();
 
@@ -65,6 +65,7 @@ public class WindowSubtitle : EditorWindow
                 m_nbr = 0;
             }
         };
+
         GUI.backgroundColor = Color.white;
 
         GUILayout.EndHorizontal();
@@ -77,9 +78,15 @@ public class WindowSubtitle : EditorWindow
         EditorGUILayout.LabelField("Can Skip : ", GUILayout.Width(60));
         m_subTitleData.canSkip = EditorGUILayout.Toggle(m_subTitleData.canSkip, GUILayout.Width(20));
 
-
         EditorGUILayout.LabelField("Next sentence by Time :", GUILayout.Width(140));
         m_subTitleData.nextSentenceByTime = EditorGUILayout.Toggle(m_subTitleData.nextSentenceByTime, GUILayout.Width(165));
+
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+
+        EditorGUILayout.LabelField("ID Events On Finish : ", GUILayout.Width(120));
+        m_subTitleData.idEventOnFinish = EditorGUILayout.TextField(m_subTitleData.idEventOnFinish, GUILayout.Width(120));
 
         GUILayout.EndHorizontal();
     }
