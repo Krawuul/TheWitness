@@ -32,13 +32,13 @@ public class ScheduleManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if(filepath.NullIfEmpty() == null)
+        if (filepath.NullIfEmpty() == null)
         {
             filepath = "Assets\\Resources\\NPCsSchedule.csv";
         }
         string[] read;
 
-        
+
         using (StreamReader sr = new StreamReader(filepath))
         {
             string dataReceived;
@@ -51,26 +51,19 @@ public class ScheduleManager : MonoBehaviour
                 int id1 = 0;
                 for (int i = 1; i < read.Length; i++)
                 {
-                    if (read[i].First() == '"')
+                    if (read[i].Last() == '"')
                     {
-                        listNpc.Add(read[i].Substring(1));
+                        listNpc.Add(read[i].Substring(0, read[i].Length - 1));
+                        string[] tArray = new string[listNpc.Count];
+                        listNpc.CopyTo(tArray);
+                        list[id1, id2] = tArray.ToList();
+
+                        listNpc.Clear();
+                        id1++;
                     }
                     else
                     {
-                        if (read[i].Last() == '"')
-                        {
-                            listNpc.Add(read[i].Substring(0, read[i].Length - 1));
-                            string[] tArray = new string[listNpc.Count];
-                            listNpc.CopyTo(tArray);
-                            list[id1, id2] = tArray.ToList();
-
-                            listNpc.Clear();
-                            id1++;
-                        }
-                        else
-                        {
-                            listNpc.Add(read[i]);
-                        }
+                        listNpc.Add(read[i].Substring(1));
                     }
                 }
 
@@ -80,7 +73,13 @@ public class ScheduleManager : MonoBehaviour
             }
         }
 
-        Debug.Log(ToString());
+        //Debug.Log(ToString());
+        //
+        //int[,] t = GetSchedule("Veuve");
+        //int[,] t1 = GetSchedule("Vielle");
+        //int[,] t2 = GetSchedule("Boucher");
+        //int[,] t3 = GetSchedule("Sportif");
+        //int[,] t4 = GetSchedule("Nain");
     }
 
     public override string ToString()
@@ -102,9 +101,24 @@ public class ScheduleManager : MonoBehaviour
         return text;
     }
 
-    // Update is called once per frame
-    void Update()
+    public int[,] GetSchedule(string npcName)
     {
-
+        int[,] tab = new int[7, 4];
+        for (int i = 0; i < list.GetLength(0); i++)
+        {
+            for (int j = 0; j < list.GetLength(1); j++)
+            {
+                bool here = false;
+                foreach (string s in list[i, j])
+                {
+                    if (s == npcName)
+                    {
+                        here = true;
+                    }
+                }
+                tab[i, j] = here ? 1 : 0;
+            }
+        }
+        return tab;
     }
 }
