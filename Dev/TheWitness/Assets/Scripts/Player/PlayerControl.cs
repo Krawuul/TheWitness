@@ -14,11 +14,14 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Transform orientation;
 
     private PlayerInputs playerInputAction;
+    private CameraControl cameraControl;
     private Vector2 inputs;
     private Rigidbody rb;
     private float speed;
 
     private RaycastHit? objectInSight;
+    private ICollectable objectInHand;
+    private bool interacting = false;
 
     #endregion
 
@@ -26,6 +29,8 @@ public class PlayerControl : MonoBehaviour
 
     public Transform Orientation { get => orientation; }
     public PlayerInputs InputAction { get => playerInputAction; }
+    public CameraControl CameraControl { get => cameraControl; }
+    public bool Interacting { get => interacting; }
 
     #endregion
 
@@ -38,10 +43,8 @@ public class PlayerControl : MonoBehaviour
         playerInputAction.InGame.Sprint.started += (context) => speed = runSpeed;
         playerInputAction.InGame.Sprint.canceled += (context) => speed = walkSpeed;
 
-        /* Not final logic
-        playerInputAction.InGame.Interact.started += (context) => StartInteract(context, objectInSight);
-        playerInputAction.InGame.Interact.canceled += (context) => StopInteract(context, objectInSight);
-        */
+        playerInputAction.InGame.Interact.started += StartInteract;
+        playerInputAction.InGame.Return.started += StopInteract;
     }
 
     private void OnDisable()
@@ -53,6 +56,7 @@ public class PlayerControl : MonoBehaviour
     {
         playerInputAction = new PlayerInputs();
         rb = GetComponent<Rigidbody>();
+        cameraControl = GetComponentInChildren<CameraControl>();
         speed = walkSpeed;
 
         // TODO : Move into gamemanager
@@ -62,22 +66,24 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
-        SetInputs();
+        if (objectInHand != null)
+        {
+            objectInHand.Show();
+        }
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            speed = runSpeed;
-        }
-        else
-        {
-            speed = walkSpeed;
-        }
+        // Movement & Detection
+        if (interacting)
+            return;
+
+        SetInputs();
 
         objectInSight = CheckInSight();
     }
 
     private void FixedUpdate()
     {
+        if (interacting)
+            return;
         Move();
     }
 
@@ -102,17 +108,46 @@ public class PlayerControl : MonoBehaviour
         return null;
     }
 
-    private void StartInteract(InputAction.CallbackContext _context, object _interactable)
+    private void StartInteract(InputAction.CallbackContext _context)
     {
         // Stop camera + movement
         // Start object interaction
+
+        if (interacting)
+            return;
+
+        rb.velocity = Vector3.zero;
+        
+        GameObject obj = objectInSight.Value.collider.gameObject;
+        obj.TryGetComponent(out objectInHand);
+        if (objectInHand == null)
+        {
+            Debug.LogWarning("[Interaction] NULL object");
+            return;
+        }
+        objectInHand.Pickup(this);
+
+        interacting = true;
     }
 
-    private void StopInteract(InputAction.CallbackContext _context, object _interactable)
+    private void StopInteract(InputAction.CallbackContext _context)
     {
         // Resume camera + movement
         // Stop object interaction
         // If object is collectable store it
+
+        if (!interacting)
+            return;
+
+        if (objectInHand == null)
+        {
+            Debug.LogWarning("[Interaction] NULL object");
+            return;
+        }
+        objectInHand.Store();
+        objectInHand = null;
+
+        interacting = false;
     }
 
 #if UNITY_EDITOR

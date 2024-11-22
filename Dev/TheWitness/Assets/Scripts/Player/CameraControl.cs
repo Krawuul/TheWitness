@@ -25,6 +25,8 @@ public class CameraControl : MonoBehaviour
 
     private void Update()
     {
+        if (playerControl.Interacting)
+            return;
         SetInputs();
         Rotate();
     }
