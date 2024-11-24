@@ -12,6 +12,9 @@ public class FmodEvents : MonoBehaviour
 
     [field: Header("PlayerFootSteps SFX")]
     [field: SerializeField] public EventReference PlayerFootSteps { get; private set; }
+    
+    [field: Header("PlayerFootStepsSprint SFX")]
+    [field: SerializeField] public EventReference PlayerFootStepsSprint { get; private set; }
 
 
 

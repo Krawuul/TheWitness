@@ -27,6 +27,7 @@ public class PlayerControl : MonoBehaviour
 
     //Audio
     private EventInstance PlayerFootSteps;
+    private EventInstance PlayerFootStepsSprint;
 
     #endregion
 
@@ -45,6 +46,7 @@ public class PlayerControl : MonoBehaviour
     {
         //audio
         PlayerFootSteps = AudioManager.instance.CreateInstance(FmodEvents.instance.PlayerFootSteps);
+        PlayerFootStepsSprint = AudioManager.instance.CreateInstance(FmodEvents.instance.PlayerFootStepsSprint);
     }
 
     private void OnEnable()
@@ -75,7 +77,7 @@ public class PlayerControl : MonoBehaviour
         Cursor.visible = false;
     }
 
-  
+
 
     private void Update()
     {
@@ -99,9 +101,12 @@ public class PlayerControl : MonoBehaviour
             return;
         Move();
 
+        PlayerFootSteps.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(this.transform.position));
+        PlayerFootStepsSprint.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(this.transform.position));
+
         UpdateSound();
     }
-    
+
 
     private void SetInputs()
     {
@@ -133,7 +138,7 @@ public class PlayerControl : MonoBehaviour
             return;
 
         rb.velocity = Vector3.zero;
-        
+
         GameObject obj = objectInSight.Value.collider.gameObject;
         obj.TryGetComponent(out objectInHand);
         if (objectInHand == null)
@@ -144,6 +149,8 @@ public class PlayerControl : MonoBehaviour
         objectInHand.Pickup(this);
 
         interacting = true;
+
+        StopFootstepSounds();
     }
 
     private void StopInteract(InputAction.CallbackContext _context)
@@ -168,27 +175,87 @@ public class PlayerControl : MonoBehaviour
 
     private void UpdateSound()
     {
-        //Start footsteps event if x velocity >0
 
-        if (rb.velocity.magnitude > 0.1f)
+        // Si la vitesse du joueur est supérieure à un certain seuil, commencez à jouer le son des pas
+        if (rb.velocity.magnitude > 0.1f && speed == walkSpeed)
         {
-            //get the playback state
+            // Vérifiez l'état de lecture actuel de l'événement
             PLAYBACK_STATE playBakState;
             PlayerFootSteps.getPlaybackState(out playBakState);
-            if (playBakState.Equals(PLAYBACK_STATE.STOPPED))
-            {
-                
-                PlayerFootSteps.start();
-                Debug.Log("Steps");
-            }
-            //else stop the event
-            else
-            {
-            PlayerFootSteps.stop(STOP_MODE.ALLOWFADEOUT);
-            }
 
+            // Démarre le son uniquement si l'événement est arrêté
+            if (playBakState == PLAYBACK_STATE.STOPPED)
+            {
+                PlayerFootSteps.start();
+                Debug.Log("Walk");
+            }
+        }
+        else if (rb.velocity.magnitude <= 0)
+        {
+            // Si la vitesse est faible, arrêtez l'événement
+            PLAYBACK_STATE playBakState;
+            PlayerFootSteps.getPlaybackState(out playBakState);
+
+            // Arrête le son uniquement s'il est en cours
+            if (playBakState == PLAYBACK_STATE.PLAYING)
+            {
+                PlayerFootSteps.stop(STOP_MODE.ALLOWFADEOUT);
+                Debug.Log("Stopping Walk");
+            }
+        }
+
+        // Si la vitesse du joueur est supérieure à un certain seuil, commencez à jouer le son des pas
+        if (rb.velocity.magnitude > 0.1f && speed == runSpeed)
+        {
+            // Vérifiez l'état de lecture actuel de l'événement
+            PLAYBACK_STATE playBakStateSprint;
+            PlayerFootStepsSprint.getPlaybackState(out playBakStateSprint);
+
+            // Démarre le son uniquement si l'événement est arrêté
+            if (playBakStateSprint == PLAYBACK_STATE.STOPPED)
+            {
+                PlayerFootStepsSprint.start();
+                Debug.Log("Sprint");
+            }
+        }
+        else if (rb.velocity.magnitude <= 0)
+        {
+            // Si la vitesse est faible, arrêtez l'événement
+            PLAYBACK_STATE playBakStateSprint;
+            PlayerFootStepsSprint.getPlaybackState(out playBakStateSprint);
+
+            // Arrête le son uniquement s'il est en cours
+            if (playBakStateSprint == PLAYBACK_STATE.PLAYING)
+            {
+                PlayerFootStepsSprint.stop(STOP_MODE.ALLOWFADEOUT);
+                Debug.Log("Stopping Sprint");
+            }
+        }
+
+    }
+
+    // Ajoutez une méthode pour stopper les sons des pas
+    private void StopFootstepSounds()
+    {
+        PLAYBACK_STATE playBakState;
+
+        // Arrête le son des pas de marche si il est en train de jouer
+        PlayerFootSteps.getPlaybackState(out playBakState);
+        if (playBakState == PLAYBACK_STATE.PLAYING)
+        {
+            PlayerFootSteps.stop(STOP_MODE.IMMEDIATE); // Ou STOP_MODE.ALLOWFADEOUT si vous préférez un fondu
+            Debug.Log("Stopping Walk Footsteps");
+        }
+
+        // Arrête le son des pas de sprint si il est en train de jouer
+        PlayerFootStepsSprint.getPlaybackState(out playBakState);
+        if (playBakState == PLAYBACK_STATE.PLAYING)
+        {
+            PlayerFootStepsSprint.stop(STOP_MODE.IMMEDIATE); // Ou STOP_MODE.ALLOWFADEOUT si vous préférez un fondu
+            Debug.Log("Stopping Sprint Footsteps");
         }
     }
+
 
 #if UNITY_EDITOR
 
@@ -201,6 +268,6 @@ public class PlayerControl : MonoBehaviour
 
 #endif
 
-#endregion
+    #endregion
 
 }
