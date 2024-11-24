@@ -987,6 +987,13 @@ MonoBehaviour:
       Data3: 1676210572
       Data4: -30366937
     Path: event:/PlayerFootSteps
+  <PlayerFootStepsSprint>k__BackingField:
+    Guid:
+      Data1: -688584068
+      Data2: 1099067016
+      Data3: 1934493838
+      Data4: -109144169
+    Path: event:/PlayerFootStepsSprint
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

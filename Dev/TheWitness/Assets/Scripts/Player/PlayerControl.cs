@@ -175,7 +175,6 @@ public class PlayerControl : MonoBehaviour
 
     private void UpdateSound()
     {
-
         // Si la vitesse du joueur est supérieure à un certain seuil, commencez à jouer le son des pas
         if (rb.velocity.magnitude > 0.1f && speed == walkSpeed)
         {
@@ -187,6 +186,7 @@ public class PlayerControl : MonoBehaviour
             if (playBakState == PLAYBACK_STATE.STOPPED)
             {
                 PlayerFootSteps.start();
+                PlayerFootStepsSprint.stop(STOP_MODE.ALLOWFADEOUT);
                 Debug.Log("Walk");
             }
         }
@@ -215,6 +215,7 @@ public class PlayerControl : MonoBehaviour
             if (playBakStateSprint == PLAYBACK_STATE.STOPPED)
             {
                 PlayerFootStepsSprint.start();
+                PlayerFootSteps.stop(STOP_MODE.ALLOWFADEOUT);
                 Debug.Log("Sprint");
             }
         }
@@ -231,7 +232,6 @@ public class PlayerControl : MonoBehaviour
                 Debug.Log("Stopping Sprint");
             }
         }
-
     }
 
     // Ajoutez une méthode pour stopper les sons des pas
