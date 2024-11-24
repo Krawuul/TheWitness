@@ -16,6 +16,7 @@ public class Item : MonoBehaviour, ICollectable
     private PlayerControl playerControl;
     private Vector3 offset = new Vector3(0, 1, 0);
 
+
     #endregion
 
     #region Methods
@@ -25,6 +26,7 @@ public class Item : MonoBehaviour, ICollectable
         Debug.Log("Pickup item of name : " + info);
         playerControl = _player;
         nxtQuat = transform.rotation;
+        AudioManager.instance.PlayOneShot(FmodEvents.instance.PickUp, this.transform.position);
     }
 
     virtual public void Show()

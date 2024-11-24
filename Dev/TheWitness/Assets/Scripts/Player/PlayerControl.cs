@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMOD.Studio;
+using System.Data;
 
 // TODO : Swich to new inputs system
 
@@ -23,6 +25,9 @@ public class PlayerControl : MonoBehaviour
     private ICollectable objectInHand;
     private bool interacting = false;
 
+    //Audio
+    private EventInstance PlayerFootSteps;
+
     #endregion
 
     #region Getters & Setters
@@ -35,6 +40,12 @@ public class PlayerControl : MonoBehaviour
     #endregion
 
     #region Methods
+
+    private void Start()
+    {
+        //audio
+        PlayerFootSteps = AudioManager.instance.CreateInstance(FmodEvents.instance.PlayerFootSteps);
+    }
 
     private void OnEnable()
     {
@@ -64,6 +75,8 @@ public class PlayerControl : MonoBehaviour
         Cursor.visible = false;
     }
 
+  
+
     private void Update()
     {
         if (objectInHand != null)
@@ -85,7 +98,10 @@ public class PlayerControl : MonoBehaviour
         if (interacting)
             return;
         Move();
+
+        UpdateSound();
     }
+    
 
     private void SetInputs()
     {
@@ -148,6 +164,30 @@ public class PlayerControl : MonoBehaviour
         objectInHand = null;
 
         interacting = false;
+    }
+
+    private void UpdateSound()
+    {
+        //Start footsteps event if x velocity >0
+
+        if (rb.velocity.magnitude > 0.1f)
+        {
+            //get the playback state
+            PLAYBACK_STATE playBakState;
+            PlayerFootSteps.getPlaybackState(out playBakState);
+            if (playBakState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                
+                PlayerFootSteps.start();
+                Debug.Log("Steps");
+            }
+            //else stop the event
+            else
+            {
+            PlayerFootSteps.stop(STOP_MODE.ALLOWFADEOUT);
+            }
+
+        }
     }
 
 #if UNITY_EDITOR
