@@ -25,6 +25,9 @@ public class PlayerControl : MonoBehaviour
     private ICollectable objectInHand;
     private bool interacting = false;
 
+    //Inventory
+    private Inventory inventory;
+
     //Audio
     private EventInstance PlayerFootSteps;
     private EventInstance PlayerFootStepsSprint;
@@ -36,18 +39,12 @@ public class PlayerControl : MonoBehaviour
     public Transform Orientation { get => orientation; }
     public PlayerInputs InputAction { get => playerInputAction; }
     public CameraControl CameraControl { get => cameraControl; }
+    public Inventory Inventory { get => inventory; }
     public bool Interacting { get => interacting; }
 
     #endregion
 
     #region Methods
-
-    private void Start()
-    {
-        //audio
-        PlayerFootSteps = AudioManager.instance.CreateInstance(FmodEvents.instance.PlayerFootSteps);
-        PlayerFootStepsSprint = AudioManager.instance.CreateInstance(FmodEvents.instance.PlayerFootStepsSprint);
-    }
 
     private void OnEnable()
     {
@@ -75,9 +72,16 @@ public class PlayerControl : MonoBehaviour
         // TODO : Move into gamemanager
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        inventory = new Inventory();
     }
 
-
+    private void Start()
+    {
+        //audio
+        PlayerFootSteps = AudioManager.instance.CreateInstance(FmodEvents.instance.PlayerFootSteps);
+        PlayerFootStepsSprint = AudioManager.instance.CreateInstance(FmodEvents.instance.PlayerFootStepsSprint);
+    }
 
     private void Update()
     {

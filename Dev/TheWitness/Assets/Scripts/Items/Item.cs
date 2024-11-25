@@ -37,6 +37,7 @@ public class Item : MonoBehaviour, ICollectable
 
     virtual public void Show()
     {
+        gameObject.SetActive(true);
         Vector3 pos = playerControl.transform.position + offset + playerControl.CameraControl.transform.forward * 0.5f;
         transform.position = Vector3.Lerp(transform.position,  pos, dampening * Time.deltaTime);
 
@@ -52,12 +53,13 @@ public class Item : MonoBehaviour, ICollectable
 
     virtual public void Hide()
     {
-
+        gameObject.SetActive(false);
     }
 
     virtual public void Store()
     {
-        Debug.Log("Storing item of name : " + info);
+        playerControl.Inventory.AddItem(this);
+        Hide();
     }
 
     #endregion
