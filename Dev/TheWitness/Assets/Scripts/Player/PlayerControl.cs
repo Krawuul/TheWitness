@@ -78,9 +78,20 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
+
+
+
+        // Vérifier si l'AudioManager est présent
+        if (AudioManager.instance == null)
+        {
+            Debug.LogError("AudioManager is missing in the scene. Player movement disabled.");
+            return;
+        }
+
         //audio
         PlayerFootSteps = AudioManager.instance.CreateInstance(FmodEvents.instance.PlayerFootSteps);
         PlayerFootStepsSprint = AudioManager.instance.CreateInstance(FmodEvents.instance.PlayerFootStepsSprint);
+
     }
 
     private void Update()
@@ -191,7 +202,6 @@ public class PlayerControl : MonoBehaviour
             {
                 PlayerFootSteps.start();
                 PlayerFootStepsSprint.stop(STOP_MODE.ALLOWFADEOUT);
-                Debug.Log("Walk");
             }
         }
         else if (rb.velocity.magnitude <= 0)
@@ -204,7 +214,6 @@ public class PlayerControl : MonoBehaviour
             if (playBakState == PLAYBACK_STATE.PLAYING)
             {
                 PlayerFootSteps.stop(STOP_MODE.ALLOWFADEOUT);
-                Debug.Log("Stopping Walk");
             }
         }
 
@@ -220,7 +229,6 @@ public class PlayerControl : MonoBehaviour
             {
                 PlayerFootStepsSprint.start();
                 PlayerFootSteps.stop(STOP_MODE.ALLOWFADEOUT);
-                Debug.Log("Sprint");
             }
         }
         else if (rb.velocity.magnitude <= 0)
@@ -233,7 +241,6 @@ public class PlayerControl : MonoBehaviour
             if (playBakStateSprint == PLAYBACK_STATE.PLAYING)
             {
                 PlayerFootStepsSprint.stop(STOP_MODE.ALLOWFADEOUT);
-                Debug.Log("Stopping Sprint");
             }
         }
     }

@@ -7,29 +7,32 @@ using System.Runtime.CompilerServices;
 
 public class AudioManager : MonoBehaviour
 {
-   public static AudioManager instance {get; private set;}
+    public static AudioManager instance { get; private set; }
 
     private List<EventInstance> eventInstances;
     private void Awake()
     {
-        if (instance != null)
+        if (instance != null && instance != this)
         {
             Debug.LogError("Found more than one Audio Manager in the scene");
+            Destroy(gameObject);
+            return;
         }
 
         instance = this;
 
         eventInstances = new List<EventInstance>();
+
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
-        RuntimeManager.PlayOneShot(sound,worldPos);
+        RuntimeManager.PlayOneShot(sound, worldPos);
     }
 
     public EventInstance CreateInstance(EventReference eventReference)
     {
-        EventInstance eventInstance= RuntimeManager.CreateInstance(eventReference); 
+        EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
 
         eventInstances.Add(eventInstance);
         return eventInstance;
@@ -39,7 +42,7 @@ public class AudioManager : MonoBehaviour
     private void CleanUp()
     {
         //Stop and release any created instances
-        foreach(EventInstance eventInstance in eventInstances)
+        foreach (EventInstance eventInstance in eventInstances)
         {
             eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             eventInstance.release();
