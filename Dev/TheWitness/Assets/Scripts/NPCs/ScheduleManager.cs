@@ -6,7 +6,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ScheduleManager : MonoBehaviour
+public class ScheduleManager : Singleton<ScheduleManager> 
 {
     public enum DAYS
     {
@@ -17,6 +17,7 @@ public class ScheduleManager : MonoBehaviour
         FRIDAY,
         SATURDAY,
         SUNDAY,
+        COUNT,
     };
 
     public enum TIMESTEP
@@ -24,7 +25,8 @@ public class ScheduleManager : MonoBehaviour
         MORNING,
         NOON,
         AFTER_NOON,
-        EVENING
+        EVENING,
+        COUNT
     };
 
     [SerializeField] string filepath;
