@@ -88,7 +88,7 @@ public class PlayerControl : MonoBehaviour
         // Vérifier si l'AudioManager est présent
         if (AudioManager.instance == null)
         {
-            Debug.LogError("AudioManager is missing in the scene. Player movement disabled.");
+            Debug.LogError("AudioManager is missing in the scene. No SoundPlayed.");
             return;
         }
 
