@@ -79,8 +79,6 @@ namespace Utils
                     OnExitCollider?.Invoke(other);
                     m_eventOnExitCollider?.Invoke();
                 }
-
-                
             }
         }
 

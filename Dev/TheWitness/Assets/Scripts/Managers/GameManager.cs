@@ -39,6 +39,7 @@ public class GameManager : Singleton<GameManager>
     public void NextDay()
     {
         gameTime.day = (ScheduleManager.DAYS)(((int)gameTime.day + 1) % (int)ScheduleManager.DAYS.COUNT);
+        gameTime.timestep = ScheduleManager.TIMESTEP.MORNING;
     }
 
     public void NextTimeStep()
