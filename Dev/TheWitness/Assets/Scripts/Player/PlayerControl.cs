@@ -160,7 +160,6 @@ public class PlayerControl : MonoBehaviour
         if (objectInHand == null)
         {
             Debug.LogWarning("[Interaction] NULL object");
-            return;
         }
         else
         {
@@ -175,7 +174,6 @@ public class PlayerControl : MonoBehaviour
         if (interactable == null)
         {
             Debug.LogWarning("[Interaction] NULL object");
-            return;
         } 
         else
         {
