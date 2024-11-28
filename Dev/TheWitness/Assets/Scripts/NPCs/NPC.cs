@@ -1,6 +1,11 @@
 
 using Manager;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class NPC : MonoBehaviour
 {
@@ -10,10 +15,11 @@ public class NPC : MonoBehaviour
     bool canEnter =false;
     [SerializeField] int gameCheckPointNeeded;
     int[,] schedule;
-    // Start is 
+    [SerializeField] List<DefaultAsset> assets = new List<DefaultAsset>();
     private void Start()
     {
         schedule = ScheduleManager.instance.GetSchedule(npcName);
+
     }
     public void OnDoorInteract()
     {
@@ -43,4 +49,5 @@ public class NPC : MonoBehaviour
             }
         }
     }
+
 }

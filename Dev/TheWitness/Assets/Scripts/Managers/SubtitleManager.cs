@@ -104,20 +104,24 @@ namespace Manager
                 int index = 0;
                 while (index < m_currentSentence.sentence.Length && !m_sentenceComplete)
                 {
-                    if(m_currentSentence.sentence[index] == '<')
+                    string tempText = string.Empty;
+                    if (m_currentSentence.sentence[index] == '<')
                     {
+
                         while (m_currentSentence.sentence[index] != '>')
                         {
-                            m_text.text += m_currentSentence.sentence[index];
+                            tempText += m_currentSentence.sentence[index];
                             index++;
                         }
 
-                        m_text.text += m_currentSentence.sentence[index];
-                        index++;
+                        tempText += m_currentSentence.sentence[index];
+                        //index++;
                     }
-
-                    m_text.text += m_currentSentence.sentence[index];
-
+                    else
+                    {
+                        tempText += m_currentSentence.sentence[index];
+                    }
+                    m_text.text += tempText;
                     yield return new WaitForSeconds(m_currentSentence.timeForEachChar * SPEED);
                     index++;
                 }
