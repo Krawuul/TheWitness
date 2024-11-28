@@ -13,7 +13,7 @@ namespace Manager
     [RequireComponent(typeof(Canvas))]
     [RequireComponent(typeof(CanvasScaler))]
     [RequireComponent(typeof(GraphicRaycaster))]
-    public class SubtitleManager : Singleton<MonoBehaviour>
+    public class SubtitleManager : Singleton<SubtitleManager>
     {
         private string m_path = Application.streamingAssetsPath + "/SubTitle/";
         [SerializeField] private string m_extension = ".json";
