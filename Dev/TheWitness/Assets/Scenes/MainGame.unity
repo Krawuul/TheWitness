@@ -13452,7 +13452,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 0
-  OverrideMaxDistance: 4.62
+  OverrideMaxDistance: 4
 --- !u!1 &202062232 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6642839025387550698, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -13647,7 +13647,7 @@ Transform:
   m_GameObject: {fileID: 207822591}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.77, y: 25.97, z: 12.64}
+  m_LocalPosition: {x: 22.77, y: 25.97, z: 9.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13682,8 +13682,8 @@ MonoBehaviour:
   NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 4.869071
+  OverrideMinDistance: 0.001
+  OverrideMaxDistance: 14.38
 --- !u!1 &212598031 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2893564262823171507, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -14550,7 +14550,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 0
-  OverrideMaxDistance: 4.62
+  OverrideMaxDistance: 4
 --- !u!1 &262301777 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7401253816567956295, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -21200,8 +21200,8 @@ MonoBehaviour:
   NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 4.869071
+  OverrideMinDistance: 0.001
+  OverrideMaxDistance: 14.65
 --- !u!1 &460708636
 GameObject:
   m_ObjectHideFlags: 0
@@ -29675,8 +29675,8 @@ MonoBehaviour:
   NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 4.869071
+  OverrideMinDistance: 0.001
+  OverrideMaxDistance: 14.65
 --- !u!1 &787114976 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7341939896384228329, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -33930,8 +33930,8 @@ MonoBehaviour:
   NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 4.869071
+  OverrideMinDistance: 0.001
+  OverrideMaxDistance: 14.65
 --- !u!1 &1039944820 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4156801106226153888, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -34595,8 +34595,8 @@ MonoBehaviour:
   NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 4.869071
+  OverrideMinDistance: 0.001
+  OverrideMaxDistance: 14.65
 --- !u!1 &1081627336 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2013989552509206693, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -45480,6 +45480,69 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -91709526252800621, guid: 2c69a505d1beddb4ab345f2acd7035f7, type: 3}
+--- !u!1 &1378099058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1378099059}
+  - component: {fileID: 1378099060}
+  m_Layer: 0
+  m_Name: AmbientMain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1378099059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378099058}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.8, y: 24.6, z: 19.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1553144467}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1378099060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378099058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -923621705
+      Data2: 1283683840
+      Data3: -258282095
+      Data4: 51498135
+    Path: event:/AmbientMainOST
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 79.017624
+  OverrideMaxDistance: 79.017624
 --- !u!1 &1378991565 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1228003748875318993, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -46864,6 +46927,69 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -91709526252800621, guid: 2c69a505d1beddb4ab345f2acd7035f7, type: 3}
+--- !u!1 &1488252900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1488252901}
+  - component: {fileID: 1488252902}
+  m_Layer: 0
+  m_Name: AmbientMain2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1488252901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488252900}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.8, y: 27.48, z: 19.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1553144467}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1488252902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488252900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 454793516
+      Data2: 1185411991
+      Data3: -602749560
+      Data4: 146194839
+    Path: event:/AmbientApps
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 20.02
+  OverrideMaxDistance: 59.17
 --- !u!1 &1489242200 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7943363082846097058, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -47003,7 +47129,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 0
-  OverrideMaxDistance: 4.62
+  OverrideMaxDistance: 4
 --- !u!1 &1496852883 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8263477063605480250, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -47696,8 +47822,8 @@ MonoBehaviour:
   NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 5.69252
+  OverrideMinDistance: 0.001
+  OverrideMaxDistance: 14.65
 --- !u!1 &1520252645 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3950394358103067723, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -48282,6 +48408,8 @@ Transform:
   m_Children:
   - {fileID: 2036363638}
   - {fileID: 1605264914}
+  - {fileID: 1378099059}
+  - {fileID: 1488252901}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1555439133 stripped
@@ -49906,8 +50034,8 @@ MonoBehaviour:
   NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 4.869071
+  OverrideMinDistance: 0.001
+  OverrideMaxDistance: 14.65
 --- !u!1 &1640493896 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 328379001958665837, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -53127,7 +53255,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 0
-  OverrideMaxDistance: 4.62
+  OverrideMaxDistance: 4
 --- !u!1 &1833833196 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7901692356168229713, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -54272,7 +54400,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 0
-  OverrideMaxDistance: 4.62
+  OverrideMaxDistance: 4
 --- !u!1 &1916884947 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3138693258556526964, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -56192,8 +56320,8 @@ MonoBehaviour:
   NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 4.869071
+  OverrideMinDistance: 0.001
+  OverrideMaxDistance: 14.65
 --- !u!1 &2016241793
 GameObject:
   m_ObjectHideFlags: 0
@@ -56256,7 +56384,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 0
-  OverrideMaxDistance: 4.62
+  OverrideMaxDistance: 4
 --- !u!1 &2018796484 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1684251428262347497, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -58532,7 +58660,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 0
-  OverrideMaxDistance: 4.62
+  OverrideMaxDistance: 4
 --- !u!1 &2117757348 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3052641051674738583, guid: 0973bf9b57aa8204898ada0a82e5cbe4,

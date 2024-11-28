@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638684082045827554
+  lastModified: 638684204726406233
   FileSizes:
   - Name: Desktop
     Value: 1092
@@ -147,7 +147,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 13287
+  Length: 12200
 --- !u!114 &-4455693153478819382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638684082045807552
+  lastModified: 638684204726381187
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -298,7 +298,7 @@ MonoBehaviour:
   - {fileID: -4455693153478819382}
   StringsBanks:
   - {fileID: -8440224136109201072}
-  cacheTime: 638684153395705908
+  cacheTime: 638684216216176573
   cacheVersion: 131621
 --- !u!114 &515665002116353466
 MonoBehaviour:
@@ -380,7 +380,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 500
+  Length: 675
 --- !u!114 &2834076040720408893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,10 +463,10 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638684153395705908
+  lastModified: 638684216216176573
   FileSizes:
   - Name: Desktop
-    Value: 1288896
+    Value: 1289472
   Exists: 1
 --- !u!114 &5698558363566431894
 MonoBehaviour:
@@ -601,7 +601,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 340
+  Length: 420
 --- !u!114 &8462811560763411467
 MonoBehaviour:
   m_ObjectHideFlags: 0
