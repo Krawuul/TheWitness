@@ -154,6 +154,7 @@ public class PlayerControl : MonoBehaviour
 
         rb.velocity = Vector3.zero;
 
+        if (objectInSight == null) return;
         GameObject obj = objectInSight.Value.collider.gameObject;
         obj.TryGetComponent(out objectInHand);
         if (objectInHand == null)
@@ -161,11 +162,26 @@ public class PlayerControl : MonoBehaviour
             Debug.LogWarning("[Interaction] NULL object");
             return;
         }
-        objectInHand.Pickup(this);
+        else
+        {
+            objectInHand.Pickup(this);
 
-        interacting = true;
+            interacting = true;
 
-        StopFootstepSounds();
+            StopFootstepSounds();
+        }
+
+        obj.TryGetComponent(out IInteractable interactable);
+        if (interactable == null)
+        {
+            Debug.LogWarning("[Interaction] NULL object");
+            return;
+        } 
+        else
+        {
+            interactable.Interact();
+        }
+
     }
 
     private void StopInteract(InputAction.CallbackContext _context)
