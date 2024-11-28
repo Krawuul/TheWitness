@@ -28,6 +28,9 @@ public class PlayerControl : MonoBehaviour
     //Inventory
     private Inventory inventory;
 
+    //Camera
+    private HeadBobbing headBobbing;
+
     //Audio
     private EventInstance PlayerFootSteps;
     private EventInstance PlayerFootStepsSprint;
@@ -74,6 +77,7 @@ public class PlayerControl : MonoBehaviour
         Cursor.visible = false;
 
         inventory = new Inventory();
+        headBobbing = GetComponentInChildren<HeadBobbing>();
     }
 
     private void Start()
@@ -217,6 +221,8 @@ public class PlayerControl : MonoBehaviour
                 PlayerFootSteps.start();
                 PlayerFootStepsSprint.stop(STOP_MODE.ALLOWFADEOUT);
             }
+
+            headBobbing.SetModifier(5f, 0.6f, 4f);
         }
         else if (rb.velocity.magnitude <= 0)
         {
@@ -229,6 +235,8 @@ public class PlayerControl : MonoBehaviour
             {
                 PlayerFootSteps.stop(STOP_MODE.ALLOWFADEOUT);
             }
+
+            headBobbing.SetModifier(1f, 1f, 1f);
         }
 
         // Si la vitesse du joueur est supérieure à un certain seuil, commencez à jouer le son des pas
@@ -244,6 +252,8 @@ public class PlayerControl : MonoBehaviour
                 PlayerFootStepsSprint.start();
                 PlayerFootSteps.stop(STOP_MODE.ALLOWFADEOUT);
             }
+
+            headBobbing.SetModifier(10f, 0.6f, 5f);
         }
         else if (rb.velocity.magnitude <= 0)
         {
@@ -256,6 +266,8 @@ public class PlayerControl : MonoBehaviour
             {
                 PlayerFootStepsSprint.stop(STOP_MODE.ALLOWFADEOUT);
             }
+
+            headBobbing.SetModifier(1f, 1f, 1f);
         }
     }
 
