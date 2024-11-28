@@ -43,7 +43,7 @@ public class PlayerControl : MonoBehaviour
     public PlayerInputs InputAction { get => playerInputAction; }
     public CameraControl CameraControl { get => cameraControl; }
     public Inventory Inventory { get => inventory; }
-    public bool Interacting { get => interacting; }
+    public bool Interacting { get => interacting; set => interacting = value; }
 
     #endregion
 
@@ -58,6 +58,8 @@ public class PlayerControl : MonoBehaviour
 
         playerInputAction.InGame.Interact.started += StartInteract;
         playerInputAction.InGame.Return.started += StopInteract;
+
+        playerInputAction.InGame.Inventory.started += (context) => { GameManager.instance.OpenCloseInventory(); };
     }
 
     private void OnDisable()
@@ -116,6 +118,8 @@ public class PlayerControl : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameManager.instance.InMenu) return;
+
         if (interacting)
             return;
         Move();
@@ -152,6 +156,8 @@ public class PlayerControl : MonoBehaviour
     {
         // Stop camera + movement
         // Start object interaction
+
+        if (GameManager.instance.InMenu) return;
 
         if (interacting)
             return;
@@ -191,6 +197,8 @@ public class PlayerControl : MonoBehaviour
         // Resume camera + movement
         // Stop object interaction
         // If object is collectable store it
+
+        if (GameManager.instance.InMenu) return;
 
         if (!interacting)
             return;
