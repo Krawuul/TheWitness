@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: pretre
+  npcTrueName: Julien
   door: {fileID: 0}
   visual: {fileID: 0}
   dialoguesCheckPoints: 0100000003000000

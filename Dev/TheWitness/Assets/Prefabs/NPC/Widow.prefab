@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: veuve
+  npcTrueName: Valery
   door: {fileID: 0}
   visual: {fileID: 0}
   dialoguesCheckPoints: 0200000005000000

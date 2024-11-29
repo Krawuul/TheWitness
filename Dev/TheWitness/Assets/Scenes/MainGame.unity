@@ -21497,7 +21497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3be8daac993bbe4ab5941ea6f51be64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameCheckPoint: 1
+  gameCheckPoint: 0
 --- !u!4 &460735033
 Transform:
   m_ObjectHideFlags: 0

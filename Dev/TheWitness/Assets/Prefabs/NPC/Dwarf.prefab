@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: nain
+  npcTrueName: Maurice
   door: {fileID: 0}
   visual: {fileID: 0}
   dialoguesCheckPoints: 06000000070000000a000000

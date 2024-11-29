@@ -9,6 +9,7 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     [SerializeField] string npcName;
+    [SerializeField] string npcTrueName;
     [SerializeField] Door door;
     [SerializeField] GameObject visual;
     bool canEnter =false;
@@ -41,8 +42,9 @@ public class NPC : MonoBehaviour
         {        
             if(GameManager.instance.GameCheckPoint == 0 && !dialoguesStates.Last())
             {
-                dialoguesStates[dialoguesStates.Length-1] = true;
+               
                 StartCoroutine(DelayedDialogue(npcName.ToUpper() + "P"));
+                dialoguesStates[dialoguesStates.Length - 1] = true;
             }
             else
             {
@@ -90,8 +92,9 @@ public class NPC : MonoBehaviour
 
     IEnumerator DelayedDialogue(string subtitleName)
     {
+        string completeName = dialoguesStates.Last() == true && subtitleName.Last() != 'P' ? " (" + npcTrueName + ")" : "";
         yield return new WaitUntil(door.IsOpen);
-
-        SubtitleManager.instance.InvokeSubTitle(subtitleName, NameTranslate.names[npcName]);
+        
+        SubtitleManager.instance.InvokeSubTitle(subtitleName, NameTranslate.names[npcName] + completeName);
     }
 }

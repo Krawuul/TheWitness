@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: boucher
+  npcTrueName: "Ren\xE9"
   door: {fileID: 0}
   visual: {fileID: 0}
   dialoguesCheckPoints: 0d0000000e000000

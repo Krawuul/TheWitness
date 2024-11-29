@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: vieille
+  npcTrueName: Jeanne
   door: {fileID: 0}
   visual: {fileID: 0}
   dialoguesCheckPoints: 08000000
