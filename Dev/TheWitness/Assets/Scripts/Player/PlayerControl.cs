@@ -109,7 +109,10 @@ public class PlayerControl : MonoBehaviour
 
         // Movement & Detection
         if (interacting)
+        {
+            rb.velocity = Vector3.zero;
             return;
+        }
 
         SetInputs();
 
