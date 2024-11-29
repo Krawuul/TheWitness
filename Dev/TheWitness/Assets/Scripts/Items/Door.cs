@@ -31,6 +31,8 @@ public class Door : MonoBehaviour, IInteractable
         closedRot = Quaternion.AngleAxis(closeAngle, Vector3.up);
         openedRot = Quaternion.AngleAxis(openAngle, Vector3.up);
 
+        if (npc != null) npc.SetDoor(this);
+
         if (pivot == null)
         {
             pivot = transform;

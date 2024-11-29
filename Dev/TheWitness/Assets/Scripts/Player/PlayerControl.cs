@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using FMOD.Studio;
 using System.Data;
+using Manager;
 
 // TODO : Swich to new inputs system
 
@@ -84,9 +85,6 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
-
-
-
         // Vérifier si l'AudioManager est présent
         if (AudioManager.instance == null)
         {
@@ -102,6 +100,8 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
+        interacting = SubtitleManager.instance.subtitlePlaying;
+
         if (objectInHand != null)
         {
             objectInHand.Show();

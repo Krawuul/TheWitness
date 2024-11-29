@@ -21,6 +21,12 @@ public class NPC : MonoBehaviour
         dialoguesStates = new bool[dialoguesCheckPoints.Length +1];
         
     }
+
+    public void SetDoor(Door _door)
+    {
+        door = _door;
+    }
+
     public bool OnDoorInteract()
     {
         if(SubtitleManager.instance.subtitlePlaying)
@@ -45,6 +51,7 @@ public class NPC : MonoBehaviour
                 {
                     if(GameManager.instance.GameCheckPoint == dialoguesCheckPoints[i] && !dialoguesStates[i])
                     {
+                        importantDialoguePlayed = true;
                         dialoguesStates[i] = true;
                         StartCoroutine(DelayedDialogue("E" + GameManager.instance.GameCheckPoint));
                         if(i ==0)

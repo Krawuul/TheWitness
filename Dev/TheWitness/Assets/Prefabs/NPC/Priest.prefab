@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14cb4f64cef9a9408812799b2c40edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: "pr\xE8tre"
+  npcName: pretre
   door: {fileID: 0}
   visual: {fileID: 0}
   dialoguesCheckPoints: 0100000003000000
