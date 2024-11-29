@@ -27,7 +27,7 @@ namespace Manager
         bool m_isWaitingForNextSentence = false;
         bool m_sentenceComplete = false;
         Coroutine startDialogueCoroutine;
-        const float SPEED = 0.0005f;
+        const float SPEED = 0.05f;
         public bool subtitlePlaying = false;
 
 
@@ -134,7 +134,7 @@ namespace Manager
 
                 if (_subtitle.nextSentenceByTime)
                 {
-                    yield return new WaitForSeconds(m_currentSentence.time);
+                    yield return new WaitForSeconds(m_currentSentence.time );
                 }
                 else
                 {

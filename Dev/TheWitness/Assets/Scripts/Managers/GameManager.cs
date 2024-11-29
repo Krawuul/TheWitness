@@ -17,7 +17,7 @@ public class GameManager : Singleton<GameManager>
         public ScheduleManager.TIMESTEP timestep ;
     }
     private GameTime gameTime ;
-    private int gameCheckPoint =0;
+    [SerializeField] private int gameCheckPoint =0;
     private int nbNpcs = 6;
     private int npcVisited = 0;
     #endregion

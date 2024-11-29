@@ -54,7 +54,7 @@ public class NPC : MonoBehaviour
                         {
                             canEnter = false;
                         }
-                        if(i != 0 && npcName.ToLower() !="veuve")
+                        if(i != 0 || npcName.ToLower() =="veuve")
                         {
                             GameManager.instance.OnNextStep();
                         }
