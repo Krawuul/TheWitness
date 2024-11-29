@@ -155,6 +155,8 @@ namespace Manager
             m_isSubtitleDisplayed = false;
             subtitlePlaying = false;
             EventsManager.instance.Active(_subtitle.idEventOnFinish);
+            EventsManager.instance.Active("ALL_DIALOGUE");
+            EventsManager.instance.Active(_subtitle.id);
         }
 
 

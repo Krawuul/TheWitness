@@ -18,6 +18,7 @@ public class Door : MonoBehaviour, IInteractable
     private Quaternion openedRot;
     
     public bool IsOpen() { return timer == interpTime; }
+    public bool IsClosed() { return timer == 0; }
 
 
     private bool closed = false;

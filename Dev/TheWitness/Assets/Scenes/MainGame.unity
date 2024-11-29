@@ -8682,7 +8682,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_objectEvent:
-    events: []
+    events:
+    - m_id: E1
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E2
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E3
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E4
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E5
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E6
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E7
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E8
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E9
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E10
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E11
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E12
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E13
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E14
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E15
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
+    - m_id: E16
+      m_event:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!4 &118740503
 Transform:
   m_ObjectHideFlags: 0
@@ -21497,6 +21561,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3be8daac993bbe4ab5941ea6f51be64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameTime:
+    day: 0
+    timestep: 0
   gameCheckPoint: 0
 --- !u!4 &460735033
 Transform:
@@ -21764,6 +21831,12 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -91709526252800621, guid: 2c69a505d1beddb4ab345f2acd7035f7, type: 3}
+--- !u!1 &484059976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3390296452431060284, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
+    type: 3}
+  m_PrefabInstance: {fileID: 142015454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &486944220 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8583584482466402344, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -22264,7 +22337,7 @@ Transform:
   m_GameObject: {fileID: 506522141}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.533952, y: -2.1016922, z: 1.5648913}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33195,6 +33268,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 506522142}
     m_Modifications:
+    - target: {fileID: 981594973032769189, guid: 11c0fd9352f49514bb6abf23671022c8,
+        type: 3}
+      propertyPath: lights
+      value: 
+      objectReference: {fileID: 484059976}
     - target: {fileID: 2326455633386924017, guid: 11c0fd9352f49514bb6abf23671022c8,
         type: 3}
       propertyPath: m_LocalPosition.x

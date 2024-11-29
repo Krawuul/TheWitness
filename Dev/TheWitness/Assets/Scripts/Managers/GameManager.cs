@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +12,13 @@ public class GameManager : Singleton<GameManager>
     private PlayerControl player;
     private InventoryUI inventoryUI;
     private bool inMenu = false;
+    [Serializable]
     public struct GameTime
     {
         public ScheduleManager.DAYS day;
         public ScheduleManager.TIMESTEP timestep ;
     }
-    private GameTime gameTime ;
+    [SerializeField] private GameTime gameTime ;
     [SerializeField] private int gameCheckPoint =0;
     private int nbNpcs = 6;
     private int npcVisited = 0;
@@ -40,9 +42,22 @@ public class GameManager : Singleton<GameManager>
         inventoryUI = FindObjectOfType<InventoryUI>(true);
         EventsManager eventManager = FindObjectOfType<EventsManager>(true);
         UnityEvent presentationEvent = new UnityEvent();
+        UnityEvent doorsShutDown = new UnityEvent();
         presentationEvent.AddListener(OnNextStep);
+        doorsShutDown.AddListener(() =>
+        {
+            foreach (var door in GameObject.FindObjectsOfType<Door>())
+            {
+                if(door.IsOpen())
+                {
+                    door.Interact();
+                }
+            };
+        });
+        doorsShutDown.AddListener(NextTimeStep);
         eventManager.events.Add("PRESENTATION", presentationEvent);
-
+        eventManager.events.Add("ALL_DIALOGUE", doorsShutDown);
+        
         gameTime.day = ScheduleManager.DAYS.SATURDAY;
     }
 
