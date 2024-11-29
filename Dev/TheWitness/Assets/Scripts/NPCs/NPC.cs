@@ -2,52 +2,89 @@
 using Manager;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class NPC : MonoBehaviour
 {
     [SerializeField] string npcName;
-    [SerializeField] GameObject door;
+    [SerializeField] Door door;
     [SerializeField] GameObject visual;
     bool canEnter =false;
-    [SerializeField] int gameCheckPointNeeded;
     int[,] schedule;
-    [SerializeField] List<DefaultAsset> assets = new List<DefaultAsset>();
+    [SerializeField] int[] dialoguesCheckPoints;
+    bool[] dialoguesStates;
     private void Start()
     {
-        schedule = ScheduleManager.instance.GetSchedule(npcName);
-
+        schedule = ScheduleManager.instance.GetSchedule(npcName.ToLower());
+        dialoguesStates = new bool[dialoguesCheckPoints.Length +1];
+        
     }
-    public void OnDoorInteract()
+    public bool OnDoorInteract()
     {
-        if(schedule[(int)GameManager.instance.GetTime().day, (int)GameManager.instance.GetTime().timestep] == 1)
+        if(SubtitleManager.instance.subtitlePlaying)
         {
-            //OpenDoor
-            
-            if(gameCheckPointNeeded == GameManager.instance.GameCheckPoint)
+            return false;
+        }
+        if(door.IsOpen())
+        {
+            return true;
+        }
+        if(schedule[(int)GameManager.instance.GetTime().day, (int)GameManager.instance.GetTime().timestep] == 1)
+        {        
+            if(GameManager.instance.GameCheckPoint == 0 && !dialoguesStates.Last())
             {
-                //Dialogue
-                
+                dialoguesStates[dialoguesStates.Length-1] = true;
+                StartCoroutine(DelayedDialogue(npcName.ToUpper() + "P"));
             }
             else
             {
-                //Can't talk Dialogue
+                bool importantDialoguePlayed = false;
+                for(int i =0; i < dialoguesCheckPoints.Length;i++)
+                {
+                    if(GameManager.instance.GameCheckPoint == dialoguesCheckPoints[i] && !dialoguesStates[i])
+                    {
+                        dialoguesStates[i] = true;
+                        StartCoroutine(DelayedDialogue("E" + GameManager.instance.GameCheckPoint));
+                        if(i ==0)
+                        {
+                            canEnter = true;
+                        }else
+                        {
+                            canEnter = false;
+                        }
+                        if(i != 0 && npcName.ToLower() !="veuve")
+                        {
+                            GameManager.instance.OnNextStep();
+                        }
+                    }
+                }
+                if(!importantDialoguePlayed)
+                {
+                    StartCoroutine(DelayedDialogue(npcName.ToUpper() + "NI"));
+                }
             }
+            return true;
 
         }
         else
         {
             if(canEnter)
             {
-                //OpenDoor
+                return true;
             }else
             {
-                //Can't enter Dialogue
+                return false;
             }
         }
     }
 
+
+    IEnumerator DelayedDialogue(string subtitleName)
+    {
+        yield return new WaitUntil(door.IsOpen);
+
+        SubtitleManager.instance.InvokeSubTitle(subtitleName, NameTranslate.names[npcName]);
+    }
 }

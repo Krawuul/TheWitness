@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using Utils;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -14,8 +16,10 @@ public class GameManager : Singleton<GameManager>
         public ScheduleManager.DAYS day;
         public ScheduleManager.TIMESTEP timestep ;
     }
-    private GameTime gameTime;
-    private int gameCheckPoint;
+    private GameTime gameTime ;
+    private int gameCheckPoint =0;
+    private int nbNpcs = 6;
+    private int npcVisited = 0;
     #endregion
 
     #region Getters & Setters
@@ -34,6 +38,12 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
         player = FindObjectOfType<PlayerControl>(true);
         inventoryUI = FindObjectOfType<InventoryUI>(true);
+        EventsManager eventManager = FindObjectOfType<EventsManager>(true);
+        UnityEvent presentationEvent = new UnityEvent();
+        presentationEvent.AddListener(OnNextStep);
+        eventManager.events.Add("PRESENTATION", presentationEvent);
+
+        gameTime.day = ScheduleManager.DAYS.SATURDAY;
     }
 
     public void OpenCloseInventory()
@@ -75,6 +85,23 @@ public class GameManager : Singleton<GameManager>
         if(gameTime.timestep == ScheduleManager.TIMESTEP.MORNING)
         {
             NextDay();
+        }
+    }
+
+    public void OnNextStep()
+    {
+        Debug.Log(gameCheckPoint);
+        if(gameCheckPoint == 0)
+        {
+            npcVisited++;
+            if(npcVisited == nbNpcs)
+            {
+                gameCheckPoint++;
+                Debug.Log(gameCheckPoint);
+            }
+        }else
+        {
+            gameCheckPoint++;
         }
     }
     #endregion

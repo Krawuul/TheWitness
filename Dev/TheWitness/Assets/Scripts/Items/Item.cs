@@ -67,7 +67,10 @@ public class Item : MonoBehaviour, ICollectable
     virtual public void Store()
     {
         playerControl.Inventory.AddItem(this);
+        
         Hide();
+        //Maxime was here
+        GameManager.instance.OnNextStep();
     }
 
     #endregion

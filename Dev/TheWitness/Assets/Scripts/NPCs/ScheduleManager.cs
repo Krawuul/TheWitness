@@ -55,7 +55,7 @@ public class ScheduleManager : Singleton<ScheduleManager>
                 {
                     if (read[i].Last() == '"')
                     {
-                        listNpc.Add(read[i].Substring(0, read[i].Length - 1));
+                        listNpc.Add(read[i].Substring(0, read[i].Length - 1).ToLower());
                         string[] tArray = new string[listNpc.Count];
                         listNpc.CopyTo(tArray);
                         list[id1, id2] = tArray.ToList();
@@ -65,7 +65,7 @@ public class ScheduleManager : Singleton<ScheduleManager>
                     }
                     else
                     {
-                        listNpc.Add(read[i].Substring(1));
+                        listNpc.Add(read[i].Substring(1).ToLower());
                     }
                 }
 
@@ -113,7 +113,7 @@ public class ScheduleManager : Singleton<ScheduleManager>
                 bool here = false;
                 foreach (string s in list[i, j])
                 {
-                    if (s == npcName)
+                    if (s.Trim() == npcName)
                     {
                         here = true;
                     }

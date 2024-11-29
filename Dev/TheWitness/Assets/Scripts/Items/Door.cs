@@ -11,10 +11,13 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] private float openAngle;
     [SerializeField] private float interpTime;
     [SerializeField] private Transform pivot;
+    [SerializeField] NPC npc;
 
     private float timer;
     private Quaternion closedRot;
     private Quaternion openedRot;
+    
+    public bool IsOpen() { return timer == interpTime; }
 
 
     private bool closed = false;
@@ -55,7 +58,16 @@ public class Door : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        closed = !closed;
+        if (npc == null)
+        {
+            closed = !closed;
+        }else
+        {
+            if(npc.OnDoorInteract())
+            {
+                closed = !closed;
+            }
+        }
     }
 
     #endregion
