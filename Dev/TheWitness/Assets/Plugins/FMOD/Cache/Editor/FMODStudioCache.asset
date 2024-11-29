@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638684204726406233
+  lastModified: 638681297733228017
   FileSizes:
   - Name: Desktop
-    Value: 1092
+    Value: 912
   Exists: 1
 --- !u!114 &-8208192762814915736
 MonoBehaviour:
@@ -74,33 +74,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 400
---- !u!114 &-7958857741275763184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/AmbientMainOST
-  m_EditorClassIdentifier: 
-  Path: event:/AmbientMainOST
-  Guid:
-    Data1: -923621705
-    Data2: 1283683840
-    Data3: -258282095
-    Data4: 51498135
-  Banks:
-  - {fileID: 5583794399136872509}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 84069
 --- !u!114 &-7415924114146247151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,33 +94,6 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1036
   Exists: 1
---- !u!114 &-7162845917102525557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/AmbientCorridor
-  m_EditorClassIdentifier: 
-  Path: event:/AmbientCorridor
-  Guid:
-    Data1: 437401077
-    Data2: 1161037178
-    Data3: -188392037
-    Data4: 857512161
-  Banks:
-  - {fileID: 5583794399136872509}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 12200
 --- !u!114 &-4455693153478819382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +109,7 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638684204726381187
+  lastModified: 638681297733208013
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -242,33 +188,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-1335156299808807641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/AmbientApps
-  m_EditorClassIdentifier: 
-  Path: event:/AmbientApps
-  Guid:
-    Data1: 454793516
-    Data2: 1185411991
-    Data3: -602749560
-    Data4: 146194839
-  Banks:
-  - {fileID: 5583794399136872509}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 44000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,44 +208,13 @@ MonoBehaviour:
   - {fileID: 996347664396307181}
   - {fileID: 2471180913073297034}
   - {fileID: 8026304858448374758}
-  - {fileID: -1335156299808807641}
-  - {fileID: 515665002116353466}
-  - {fileID: -7958857741275763184}
-  - {fileID: -7162845917102525557}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4455693153478819382}
   StringsBanks:
   - {fileID: -8440224136109201072}
-  cacheTime: 638684216216176573
+  cacheTime: 638681297734212827
   cacheVersion: 131621
---- !u!114 &515665002116353466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/AmbientLight
-  m_EditorClassIdentifier: 
-  Path: event:/AmbientLight
-  Guid:
-    Data1: -141072732
-    Data2: 1265775122
-    Data3: -875666513
-    Data4: 65001982
-  Banks:
-  - {fileID: 5583794399136872509}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 6194
 --- !u!114 &996347664396307181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,7 +268,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 675
+  Length: 400
 --- !u!114 &2834076040720408893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,10 +351,10 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638684216216176573
+  lastModified: 638681297734212827
   FileSizes:
   - Name: Desktop
-    Value: 1289472
+    Value: 22688
   Exists: 1
 --- !u!114 &5698558363566431894
 MonoBehaviour:
@@ -601,7 +489,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 420
+  Length: 245
 --- !u!114 &8462811560763411467
 MonoBehaviour:
   m_ObjectHideFlags: 0

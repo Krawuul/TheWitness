@@ -30,6 +30,11 @@ public class Door : MonoBehaviour, IInteractable
     {
         closedRot = Quaternion.AngleAxis(closeAngle, Vector3.up);
         openedRot = Quaternion.AngleAxis(openAngle, Vector3.up);
+
+        if (pivot == null)
+        {
+            pivot = transform;
+        }
     }
 
     private void Update()
@@ -44,9 +49,9 @@ public class Door : MonoBehaviour, IInteractable
         }
         timer = Mathf.Clamp(timer, 0, interpTime);
 
-        pivot.transform.rotation = Quaternion.Lerp(closedRot, openedRot, timer / interpTime);
+        pivot.transform.localRotation = Quaternion.Lerp(closedRot, openedRot, timer / interpTime);
 
-        if (pivot.transform.rotation == closedRot || pivot.transform.rotation == openedRot)
+        if (pivot.transform.localRotation == closedRot || pivot.transform.localRotation == openedRot)
         {
             GetComponent<Collider>().enabled = true;
         } 
