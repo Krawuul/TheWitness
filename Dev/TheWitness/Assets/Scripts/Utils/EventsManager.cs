@@ -16,7 +16,10 @@ namespace Utils
 
         public void Active(string _eventName)
         {
-            events[_eventName]?.Invoke();
+            if (events.ContainsKey(_eventName))
+            {
+                events[_eventName]?.Invoke();
+            }
         }
 
         private void OnEnable()

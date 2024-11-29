@@ -9,14 +9,22 @@ public class Item : MonoBehaviour, ICollectable
     #region Properties
 
     [SerializeField] private string info;
+    [SerializeField][TextArea] private string infoplus;
     private Quaternion nxtQuat;
     private float dampening = 12f;
     private float sensitivity = 0.4f;
 
     private PlayerControl playerControl;
-    private Vector3 offset = new Vector3(0, 1, 0);
+    private Vector3 offset = new Vector3(0, 1.5f, 0);
 
     private Vector3 LeftAxis;
+
+    #endregion
+
+    #region Getters & Setters
+
+    public string Info { get => info; }
+    public string Infoplus { get => infoplus; }
 
     #endregion
 
@@ -59,7 +67,10 @@ public class Item : MonoBehaviour, ICollectable
     virtual public void Store()
     {
         playerControl.Inventory.AddItem(this);
+        
         Hide();
+        //Maxime was here
+        GameManager.instance.OnNextStep();
     }
 
     #endregion

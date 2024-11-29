@@ -25,6 +25,7 @@ public class CameraControl : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.InMenu) return;
         if (playerControl.Interacting)
             return;
         SetInputs();

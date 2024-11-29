@@ -18,6 +18,7 @@ namespace Manager
         private string m_path = Application.streamingAssetsPath + "/SubTitle/";
         [SerializeField] private string m_extension = ".json";
         [SerializeField] private TextMeshProUGUI m_text;
+        [SerializeField] private TextMeshProUGUI m_talkerText;
         private bool m_isSubtitleDisplayed = false;
         private float m_currentSentencePriority = 0;
         Queue<SubTitleData> m_textQueue = new Queue<SubTitleData>();
@@ -27,6 +28,8 @@ namespace Manager
         bool m_sentenceComplete = false;
         Coroutine startDialogueCoroutine;
         const float SPEED = 0.05f;
+        public bool subtitlePlaying = false;
+
 
         void Start()
         {
@@ -39,7 +42,7 @@ namespace Manager
         /// <summary>
         /// Start a Coroutine for the Subtitle or if One Subtitle was Already Start, Stack the Subtitle in Queue.
         /// </summary>
-        public void InvokeSubTitle(string _nameFile)
+        public void InvokeSubTitle(string _nameFile,string _talkerName)
         {
             SubTitleData data;
             try
@@ -53,33 +56,34 @@ namespace Manager
                 throw;
             }
 
+           
 
             if (m_isSubtitleDisplayed == false)
             {
                 m_currentSentencePriority = data.priority;
-                startDialogueCoroutine = StartCoroutine(StartSubtitle(data));
+                startDialogueCoroutine = StartCoroutine(StartSubtitle(data,_talkerName));
             }
             else if (data.priority > m_currentSentencePriority)
             {
                 m_currentSentencePriority = data.priority;
                 StopCoroutine(startDialogueCoroutine);
                 m_text.text = "";
-                startDialogueCoroutine = StartCoroutine(StartSubtitle(data));
+                startDialogueCoroutine = StartCoroutine(StartSubtitle(data, _talkerName));
             }
             else
             {
                 m_textQueue.Enqueue(data);
-                startDialogueCoroutine = StartCoroutine(OnHoldSubTitle());
+                startDialogueCoroutine = StartCoroutine(OnHoldSubTitle(_talkerName));
             }
         }
 
-        IEnumerator OnHoldSubTitle()
+        IEnumerator OnHoldSubTitle(string _talkerName)
         {
             while (m_textQueue.Count > 0)
             {
                 if (m_isSubtitleDisplayed == false)
                 {
-                    StartCoroutine(StartSubtitle(m_textQueue.Dequeue()));
+                    StartCoroutine(StartSubtitle(m_textQueue.Dequeue(),_talkerName));
                 }
 
                 yield return null;
@@ -91,10 +95,11 @@ namespace Manager
         /// </summary>
         /// <param name="_subtitle"></param>
         /// <returns></returns>
-        IEnumerator StartSubtitle(SubTitleData _subtitle)
+        IEnumerator StartSubtitle(SubTitleData _subtitle,string _talkerName)
         {
+            subtitlePlaying = true;
             m_isSubtitleDisplayed = true;
-
+            m_talkerText.text = _talkerName;
             for (int i = 0; i < _subtitle.sentences.Count; i++)
             {
                 m_currentSentence = _subtitle.sentences[i];
@@ -104,20 +109,24 @@ namespace Manager
                 int index = 0;
                 while (index < m_currentSentence.sentence.Length && !m_sentenceComplete)
                 {
-                    if(m_currentSentence.sentence[index] == '<')
+                    string tempText = string.Empty;
+                    if (m_currentSentence.sentence[index] == '<')
                     {
+
                         while (m_currentSentence.sentence[index] != '>')
                         {
-                            m_text.text += m_currentSentence.sentence[index];
+                            tempText += m_currentSentence.sentence[index];
                             index++;
                         }
 
-                        m_text.text += m_currentSentence.sentence[index];
-                        index++;
+                        tempText += m_currentSentence.sentence[index];
+                        //index++;
                     }
-
-                    m_text.text += m_currentSentence.sentence[index];
-
+                    else
+                    {
+                        tempText += m_currentSentence.sentence[index];
+                    }
+                    m_text.text += tempText;
                     yield return new WaitForSeconds(m_currentSentence.timeForEachChar * SPEED);
                     index++;
                 }
@@ -125,7 +134,7 @@ namespace Manager
 
                 if (_subtitle.nextSentenceByTime)
                 {
-                    yield return new WaitForSeconds(m_currentSentence.time);
+                    yield return new WaitForSeconds(m_currentSentence.time );
                 }
                 else
                 {
@@ -142,8 +151,9 @@ namespace Manager
 
 
             m_text.text = "";
+            m_talkerText.text = "";
             m_isSubtitleDisplayed = false;
-
+            subtitlePlaying = false;
             EventsManager.instance.Active(_subtitle.idEventOnFinish);
         }
 

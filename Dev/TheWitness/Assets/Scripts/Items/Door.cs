@@ -11,10 +11,13 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] private float openAngle;
     [SerializeField] private float interpTime;
     [SerializeField] private Transform pivot;
+    [SerializeField] NPC npc;
 
     private float timer;
     private Quaternion closedRot;
     private Quaternion openedRot;
+    
+    public bool IsOpen() { return timer == interpTime; }
 
 
     private bool closed = false;
@@ -27,6 +30,13 @@ public class Door : MonoBehaviour, IInteractable
     {
         closedRot = Quaternion.AngleAxis(closeAngle, Vector3.up);
         openedRot = Quaternion.AngleAxis(openAngle, Vector3.up);
+
+        if (npc != null) npc.SetDoor(this);
+
+        if (pivot == null)
+        {
+            pivot = transform;
+        }
     }
 
     private void Update()
@@ -41,9 +51,9 @@ public class Door : MonoBehaviour, IInteractable
         }
         timer = Mathf.Clamp(timer, 0, interpTime);
 
-        pivot.transform.rotation = Quaternion.Lerp(closedRot, openedRot, timer / interpTime);
+        pivot.transform.localRotation = Quaternion.Lerp(closedRot, openedRot, timer / interpTime);
 
-        if (pivot.transform.rotation == closedRot || pivot.transform.rotation == openedRot)
+        if (pivot.transform.localRotation == closedRot || pivot.transform.localRotation == openedRot)
         {
             GetComponent<Collider>().enabled = true;
         } 
@@ -55,7 +65,16 @@ public class Door : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        closed = !closed;
+        if (npc == null)
+        {
+            closed = !closed;
+        }else
+        {
+            if(npc.OnDoorInteract())
+            {
+                closed = !closed;
+            }
+        }
     }
 
     #endregion

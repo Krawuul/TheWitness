@@ -17,7 +17,17 @@ public class Inventory
         if (items.Contains(item)) return;
 
         items.Add(item);
+        GameManager.instance.InventoryUI.AddItem(item);
         Debug.Log("Item of name : " + item.name + " has been stored!");
+    }
+
+    public Item GetItem(int id)
+    {
+        if (id > 0 && id < items.Count)
+        {
+            return items[id];
+        }
+        return null;
     }
 
     #endregion

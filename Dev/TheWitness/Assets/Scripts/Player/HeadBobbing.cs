@@ -29,6 +29,13 @@ public class HeadBobbing : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.InMenu || GameManager.instance.Player.Interacting) 
+        {
+            transform.localPosition = Vector3.Lerp(transform.localPosition,  Vector3.zero, Time.deltaTime * 4f);
+            timer = 0;
+            return;
+        }
+
         if (loop)
         {
             timer += Time.deltaTime * currentFrequency;
