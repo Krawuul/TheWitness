@@ -90,8 +90,11 @@
 	<object class="MixerBusPanner" id="{1c41071a-09a2-4377-a9b6-4cbb1db14fb8}" />
 	<object class="SingleSound" id="{eb0eddd9-cf64-45b5-aaed-9ffe11f9b2be}">
 		<property name="length">
-			<value>30</value>
+			<value>22.5</value>
 		</property>
+		<relationship name="fadeOutCurve">
+			<destination>{17fa0a9f-4b12-4065-9f58-fb4b086dd7b8}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{c64e1032-2c10-4117-9219-3d24b28b0f3c}</destination>
 		</relationship>
@@ -121,6 +124,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{b43fdce1-882e-4af5-bc35-4754c277ff48}" />
 	<object class="MixerBusFader" id="{2917e4b6-f8a8-4827-84dd-90b9b6617140}" />
+	<object class="FadeCurve" id="{17fa0a9f-4b12-4065-9f58-fb4b086dd7b8}">
+		<relationship name="startPoint">
+			<destination>{932ce711-ffdb-4957-94bf-9b0ba80bfa1e}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{43a5021d-4533-455d-b717-349c5f8ac091}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{f8504ea5-469e-4cba-87be-88a94a5df945}">
 		<relationship name="effects">
 			<destination>{c0955da1-e1a2-4586-a4ae-2482b63df4b6}</destination>
@@ -129,5 +140,24 @@
 	<object class="MixerBusPanner" id="{ed9eff3d-7b42-4e80-ad57-0eb52d04850b}" />
 	<object class="MixerBusFader" id="{131bee26-929f-4a40-8cc6-18c8ef5d4be2}" />
 	<object class="SpatialiserEffect" id="{cdb63d92-847f-4a2c-98a4-3ff5f80d7621}" />
+	<object class="AutomationPoint" id="{932ce711-ffdb-4957-94bf-9b0ba80bfa1e}">
+		<property name="position">
+			<value>14.745997536945815</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+		<property name="curveShape">
+			<value>0.25471893</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{43a5021d-4533-455d-b717-349c5f8ac091}">
+		<property name="position">
+			<value>22.5</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{c0955da1-e1a2-4586-a4ae-2482b63df4b6}" />
 </objects>

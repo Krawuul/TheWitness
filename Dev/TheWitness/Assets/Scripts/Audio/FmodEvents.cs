@@ -45,6 +45,10 @@ public class FmodEvents : MonoBehaviour
     [field: SerializeField] public EventReference OldWoman { get; private set; }
 
 
+    //INSTANCE NULL
+    [field: Header("NULL SFX")]
+    [field: SerializeField] public EventReference Null { get; private set; }
+
 
 
 

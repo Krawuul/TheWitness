@@ -75,21 +75,18 @@ public class Door : MonoBehaviour, IInteractable
         }
         else
         {
+            if (!closed)
+            { //Seul moyen d'avoir KnockOndoor efficace
             AudioManager.instance.PlayOneShot(FmodEvents.instance.KnockDoor, this.transform.position);
+            }
 
             if (npc.OnDoorInteract())
             {
                 closed = !closed;
 
-                AudioManager.instance.PlayOneShot(FmodEvents.instance.OpenDoor, this.transform.position);
+                AudioManager.instance.PlayOneShot(FmodEvents.instance.CloseDoor, this.transform.position);
             }
            
-        }
-
-
-        if (closed)
-        {
-
         }
     }
 
