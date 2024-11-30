@@ -1,4 +1,3 @@
-
 using Manager;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,7 +18,7 @@ public class NPC : MonoBehaviour
     [SerializeField] GameObject lights;
 
     Volume volume;
-    bool canEnter =false;
+    bool canEnter = false;
     int[,] schedule;
     [SerializeField] int[] dialoguesCheckPoints;
     bool[] dialoguesStates;
@@ -27,6 +26,12 @@ public class NPC : MonoBehaviour
     float comeTime = 2f;
     Vector3 start;
     Vector3 end;
+
+    // Variables pour gérer l'audio et le mouvement
+    private FMOD.Studio.EventInstance npcAudioInstance;
+    private Vector3 lastPlayerPosition;
+    private bool isDialoguePlaying = false;
+
     private void Start()
     {
         schedule = ScheduleManager.instance.GetSchedule(npcName.ToLower());
@@ -56,7 +61,6 @@ public class NPC : MonoBehaviour
         }
         if (schedule[(int)GameManager.instance.GetTime().day, (int)GameManager.instance.GetTime().timestep] == 1)
         {
-
             foreach (Transform light in lights.transform)
             {
                 light.gameObject.SetActive(false);
@@ -64,12 +68,11 @@ public class NPC : MonoBehaviour
             Bloom b;
             volume.profile.TryGet(out b);
             b.active = false;
+
             if (GameManager.instance.GameCheckPoint == 0 && !dialoguesStates.Last())
             {
-
                 StartCoroutine(DelayedDialogue(npcName.ToUpper() + "P"));
                 dialoguesStates[dialoguesStates.Length - 1] = true;
-
             }
             else
             {
@@ -99,12 +102,10 @@ public class NPC : MonoBehaviour
                 {
                     StartCoroutine(DelayedDialogue(npcName.ToUpper() + "NI"));
                 }
-
             }
             visual.SetActive(true);
             timer = 0;
             return true;
-
         }
         else
         {
@@ -116,7 +117,7 @@ public class NPC : MonoBehaviour
                 }
                 Bloom b;
                 volume.profile.TryGet(out b);
-                b.active =true;
+                b.active = true;
                 return true;
             }
             else
@@ -126,7 +127,6 @@ public class NPC : MonoBehaviour
         }
     }
 
-
     IEnumerator DelayedDialogue(string subtitleName)
     {
         string completeName = dialoguesStates.Last() == true && subtitleName.Last() != 'P' ? " (" + npcTrueName + ")" : "";
@@ -135,8 +135,22 @@ public class NPC : MonoBehaviour
 
         SubtitleManager.instance.InvokeSubTitle(subtitleName, NameTranslate.names[npcName] + completeName);
 
+
         // Jouer l'audio du NPC
         PlayNpcDialogueAudio();
+        isDialoguePlaying = true;  // Indique que le dialogue est en cours
+        lastPlayerPosition = GameManager.instance.Player.transform.position;  // Sauvegarde la position actuelle du joueur
+
+        // Attendre que le joueur se déplace ou que le dialogue se termine
+        yield return new WaitUntil(() => HasPlayerMoved());
+        StopNpcDialogueAudio(); // Arrêter l'audio quand le joueur bouge
+    }
+
+    // Vérifie si le joueur a bougé depuis la dernière position
+    private bool HasPlayerMoved()
+    {
+        Vector3 currentPlayerPosition = GameManager.instance.Player.transform.position;
+        return Vector3.Distance(lastPlayerPosition, currentPlayerPosition) > 0.1f;
     }
 
     private void Update()
@@ -148,44 +162,52 @@ public class NPC : MonoBehaviour
             timer = Mathf.Clamp(timer, 0f, comeTime);
             visual.transform.position = Vector3.Lerp(start, end, timer / comeTime);
             Camera.main.transform.LookAt(head);
+
             if (door.IsClosed())
             {
                 visual.SetActive(false);
             }
+
             GameManager.instance.Player.transform.position = Vector3.MoveTowards(GameManager.instance.Player.transform.position, playerPos.position, Time.deltaTime);
         }
     }
 
-
     public void PlayNpcDialogueAudio()
     {
-        // Utiliser un EventReference pour la gestion des �v�nements FMOD
         FMODUnity.EventReference audioEvent = GetNpcAudioEvent(npcName.ToLower());
-        AudioManager.instance.PlayOneShot(audioEvent, this.transform.position);
+        npcAudioInstance = FMODUnity.RuntimeManager.CreateInstance(audioEvent);
+        npcAudioInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(this.transform.position));
+
+        npcAudioInstance.start();
     }
 
-    // Cette m�thode d�termine l'audio � jouer en fonction du nom du NPC
-    private FMODUnity.EventReference GetNpcAudioEvent(string npcName)
+    private void StopNpcDialogueAudio()
     {
-        //pour associer le NPC � un �v�nement FMOD
-        switch (npcName)
+        if (npcAudioInstance.isValid())
         {
-            case "pretre":
-                return FmodEvents.instance.Priest;  //FmodEvents.Priest est un EventReference
-            case "veuve":
-                return FmodEvents.instance.Widow;  // FmodEvents.Veuve est un EventReference
-            case "vieille":
-                return FmodEvents.instance.OldWoman;  // Assure-toi que FmodEvents.Veuve est un EventReference
-            case "nain":
-                return FmodEvents.instance.Dwarf;  // Assure-toi que FmodEvents.Veuve est un EventReference
-            case "boucher":
-                return FmodEvents.instance.Butcher;  // Assure-toi que FmodEvents.Veuve est un EventReference
-            case "athlete":
-                return FmodEvents.instance.Athlete;  // Assure-toi que FmodEvents.Veuve est un EventReference
-
-            default:
-                return FmodEvents.instance.Null;  // Valeur par d�faut
+            npcAudioInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            npcAudioInstance.release();
         }
     }
 
+    private FMODUnity.EventReference GetNpcAudioEvent(string npcName)
+    {
+        switch (npcName)
+        {
+            case "pretre":
+                return FmodEvents.instance.Priest;
+            case "veuve":
+                return FmodEvents.instance.Widow;
+            case "vieille":
+                return FmodEvents.instance.OldWoman;
+            case "nain":
+                return FmodEvents.instance.Dwarf;
+            case "boucher":
+                return FmodEvents.instance.Butcher;
+            case "athlete":
+                return FmodEvents.instance.Athlete;
+            default:
+                return FmodEvents.instance.Null;
+        }
+    }
 }
