@@ -23194,6 +23194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3375206435609207711, guid: dce103c095339e34a8663f2ba85eb812,
         type: 3}
+      propertyPath: <KnockDoor>k__BackingField.Path
+      value: event:/KnockOnDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375206435609207711, guid: dce103c095339e34a8663f2ba85eb812,
+        type: 3}
       propertyPath: <OpenDoor>k__BackingField.Guid.Data1
       value: 1644173183
       objectReference: {fileID: 0}
@@ -23231,6 +23236,26 @@ PrefabInstance:
         type: 3}
       propertyPath: <CloseDoor>k__BackingField.Guid.Data4
       value: 463046716
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375206435609207711, guid: dce103c095339e34a8663f2ba85eb812,
+        type: 3}
+      propertyPath: <KnockDoor>k__BackingField.Guid.Data1
+      value: -1824590619
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375206435609207711, guid: dce103c095339e34a8663f2ba85eb812,
+        type: 3}
+      propertyPath: <KnockDoor>k__BackingField.Guid.Data2
+      value: 1223641096
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375206435609207711, guid: dce103c095339e34a8663f2ba85eb812,
+        type: 3}
+      propertyPath: <KnockDoor>k__BackingField.Guid.Data3
+      value: 273019304
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375206435609207711, guid: dce103c095339e34a8663f2ba85eb812,
+        type: 3}
+      propertyPath: <KnockDoor>k__BackingField.Guid.Data4
+      value: -168386169
       objectReference: {fileID: 0}
     - target: {fileID: 5784244162698423152, guid: dce103c095339e34a8663f2ba85eb812,
         type: 3}

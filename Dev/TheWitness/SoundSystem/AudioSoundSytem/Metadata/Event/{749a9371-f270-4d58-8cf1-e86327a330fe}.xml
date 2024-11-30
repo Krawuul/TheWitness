@@ -103,7 +103,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{aa92517b-80c1-4fb3-b346-f3f38a41aaeb}">
 		<property name="volume">
-			<value>-21.5</value>
+			<value>-29.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -166,7 +166,7 @@
 	<object class="SpatialiserEffect" id="{62bec232-af66-4a1a-be80-e9b19006fd5b}" />
 	<object class="SFXReverbEffect" id="{bd6767c4-ec20-4ccc-add0-2f4db4bd4cfd}">
 		<property name="decayTime">
-			<value>4700</value>
+			<value>1000</value>
 		</property>
 		<property name="earlyDelay">
 			<value>0</value>

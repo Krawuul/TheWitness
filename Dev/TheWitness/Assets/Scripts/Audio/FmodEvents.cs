@@ -22,6 +22,30 @@ public class FmodEvents : MonoBehaviour
     [field: Header("CloseDoor SFX")]
     [field: SerializeField] public EventReference CloseDoor { get; private set; }
 
+    [field: Header("KnockDoor SFX")]
+    [field: SerializeField] public EventReference KnockDoor { get; private set; }
+
+    //Dialogue
+    [field: Header("Priest SFX")]
+    [field: SerializeField] public EventReference Priest { get; private set; }
+
+    [field: Header("Dwarf SFX")]
+    [field: SerializeField] public EventReference Dwarf { get; private set; }
+
+    [field: Header("Butcher SFX")]
+    [field: SerializeField] public EventReference Butcher { get; private set; }
+
+    [field: Header("Athlete SFX")]
+    [field: SerializeField] public EventReference Athlete { get; private set; }
+
+    [field: Header("Widow SFX")]
+    [field: SerializeField] public EventReference Widow { get; private set; }
+
+    [field: Header("OldWoman SFX")]
+    [field: SerializeField] public EventReference OldWoman { get; private set; }
+
+
+
 
 
     private void Awake()

@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638685733518389715
+  lastModified: 638685750817579385
   FileSizes:
   - Name: Desktop
-    Value: 1492
+    Value: 1534
   Exists: 1
 --- !u!114 &-8208192762814915736
 MonoBehaviour:
@@ -136,7 +136,7 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638685733518379697
+  lastModified: 638685750817564338
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -221,7 +221,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 12200
+  Length: 13287
 --- !u!114 &-1778477902995087196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,7 +322,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1201032
+  Length: 1201230
 --- !u!114 &-17070673508186148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,12 +384,13 @@ MonoBehaviour:
   - {fileID: -1259437871992805343}
   - {fileID: -6015594178234030660}
   - {fileID: 89364342760780590}
+  - {fileID: 6278895011115422150}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4455693153478819382}
   StringsBanks:
   - {fileID: -8440224136109201072}
-  cacheTime: 638685733519761850
+  cacheTime: 638685758279878800
   cacheVersion: 131621
 --- !u!114 &89364342760780590
 MonoBehaviour:
@@ -552,7 +553,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 675
+  Length: 620
 --- !u!114 &2593420619610866783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -689,10 +690,10 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638685733519761850
+  lastModified: 638685758279878800
   FileSizes:
   - Name: Desktop
-    Value: 13475424
+    Value: 13539360
   Exists: 1
 --- !u!114 &5698558363566431894
 MonoBehaviour:
@@ -754,6 +755,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 864
   Exists: 1
+--- !u!114 &6278895011115422150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/KnockOnDoor
+  m_EditorClassIdentifier: 
+  Path: event:/KnockOnDoor
+  Guid:
+    Data1: -1824590619
+    Data2: 1223641096
+    Data3: 273019304
+    Data4: -168386169
+  Banks:
+  - {fileID: 5583794399136872509}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2140
 --- !u!114 &6914675315270454494
 MonoBehaviour:
   m_ObjectHideFlags: 0

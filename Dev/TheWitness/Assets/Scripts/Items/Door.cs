@@ -16,7 +16,7 @@ public class Door : MonoBehaviour, IInteractable
     private float timer;
     private Quaternion closedRot;
     private Quaternion openedRot;
-    
+
     public bool IsOpen() { return timer == interpTime; }
     public bool IsClosed() { return timer == 0; }
 
@@ -57,7 +57,7 @@ public class Door : MonoBehaviour, IInteractable
         if (pivot.transform.localRotation == closedRot || pivot.transform.localRotation == openedRot)
         {
             GetComponent<Collider>().enabled = true;
-        } 
+        }
         else
         {
             GetComponent<Collider>().enabled = false;
@@ -69,12 +69,13 @@ public class Door : MonoBehaviour, IInteractable
         if (npc == null)
         {
             closed = !closed;
-
             AudioManager.instance.PlayOneShot(FmodEvents.instance.OpenDoor, this.transform.position);
+
+
         }
         else
         {
-            AudioManager.instance.PlayOneShot(FmodEvents.instance.CloseDoor, this.transform.position);
+            AudioManager.instance.PlayOneShot(FmodEvents.instance.KnockDoor, this.transform.position);
 
             if (npc.OnDoorInteract())
             {
@@ -82,6 +83,13 @@ public class Door : MonoBehaviour, IInteractable
 
                 AudioManager.instance.PlayOneShot(FmodEvents.instance.OpenDoor, this.transform.position);
             }
+           
+        }
+
+
+        if (closed)
+        {
+
         }
     }
 
