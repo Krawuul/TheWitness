@@ -16,6 +16,12 @@ public class FmodEvents : MonoBehaviour
     [field: Header("PlayerFootStepsSprint SFX")]
     [field: SerializeField] public EventReference PlayerFootStepsSprint { get; private set; }
 
+    [field: Header("OpenDoor SFX")]
+    [field: SerializeField] public EventReference OpenDoor { get; private set; }
+
+    [field: Header("CloseDoor SFX")]
+    [field: SerializeField] public EventReference CloseDoor { get; private set; }
+
 
 
     private void Awake()

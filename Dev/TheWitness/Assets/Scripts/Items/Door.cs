@@ -69,11 +69,18 @@ public class Door : MonoBehaviour, IInteractable
         if (npc == null)
         {
             closed = !closed;
-        }else
+
+            AudioManager.instance.PlayOneShot(FmodEvents.instance.OpenDoor, this.transform.position);
+        }
+        else
         {
-            if(npc.OnDoorInteract())
+            AudioManager.instance.PlayOneShot(FmodEvents.instance.CloseDoor, this.transform.position);
+
+            if (npc.OnDoorInteract())
             {
                 closed = !closed;
+
+                AudioManager.instance.PlayOneShot(FmodEvents.instance.OpenDoor, this.transform.position);
             }
         }
     }
