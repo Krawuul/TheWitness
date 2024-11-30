@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
-using UnityEngine.Windows;
 
 public class Item : MonoBehaviour, ICollectable
 {
