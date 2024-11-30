@@ -10,7 +10,7 @@ namespace Manager
         [SerializeField] Image m_imageFade;
         bool m_isFade;
 
-        bool IsFade {  get { return m_isFade; } }
+        public bool IsFade {  get { return m_isFade; } }
 
         CanvasManager()
         {
@@ -24,6 +24,7 @@ namespace Manager
 
         IEnumerator FadeInOut(float _speed, float _waitSeconds)
         {
+            m_isFade = true;
             m_imageFade.gameObject.SetActive(true);
   
             float alpha = 0f;
@@ -42,7 +43,7 @@ namespace Manager
                 m_imageFade.color = new Color(0, 0, 0,alpha);
                 yield return null;
             }
-
+            m_isFade =false;
             m_imageFade.gameObject.SetActive(false);
         }
 
