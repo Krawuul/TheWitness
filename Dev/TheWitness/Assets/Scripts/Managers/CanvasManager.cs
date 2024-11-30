@@ -17,9 +17,9 @@ namespace Manager
             m_isFade = false;
         }
 
-        public void Fade(float _speed = 0.5f, float _waitSeconds = 1f)
+        public void Fade(float _speed = 0.5f, float _duration = 1f)
         {
-            StartCoroutine(FadeInOut(_speed,_waitSeconds));
+            StartCoroutine(FadeInOut(_speed,_duration));
         }
 
         IEnumerator FadeInOut(float _speed, float _waitSeconds)
