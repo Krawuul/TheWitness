@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class NPC : MonoBehaviour
 {
@@ -15,7 +17,9 @@ public class NPC : MonoBehaviour
     [SerializeField] Transform head;
     [SerializeField] Transform playerPos;
     [SerializeField] GameObject lights;
-    bool canEnter = false;
+
+    Volume volume;
+    bool canEnter =false;
     int[,] schedule;
     [SerializeField] int[] dialoguesCheckPoints;
     bool[] dialoguesStates;
@@ -32,6 +36,7 @@ public class NPC : MonoBehaviour
         start.y = GameManager.instance.Player.transform.position.y;
         end.y = GameManager.instance.Player.transform.position.y;
         visual.transform.position = start;
+        volume = GameObject.FindObjectOfType<Volume>();
     }
 
     public void SetDoor(Door _door)
@@ -56,6 +61,9 @@ public class NPC : MonoBehaviour
             {
                 light.gameObject.SetActive(false);
             }
+            Bloom b;
+            volume.profile.TryGet(out b);
+            b.active = false;
             if (GameManager.instance.GameCheckPoint == 0 && !dialoguesStates.Last())
             {
 
@@ -106,6 +114,9 @@ public class NPC : MonoBehaviour
                 {
                     light.gameObject.SetActive(true);
                 }
+                Bloom b;
+                volume.profile.TryGet(out b);
+                b.active =true;
                 return true;
             }
             else
@@ -148,15 +159,15 @@ public class NPC : MonoBehaviour
 
     public void PlayNpcDialogueAudio()
     {
-        // Utiliser un EventReference pour la gestion des événements FMOD
+        // Utiliser un EventReference pour la gestion des ï¿½vï¿½nements FMOD
         FMODUnity.EventReference audioEvent = GetNpcAudioEvent(npcName.ToLower());
         AudioManager.instance.PlayOneShot(audioEvent, this.transform.position);
     }
 
-    // Cette méthode détermine l'audio à jouer en fonction du nom du NPC
+    // Cette mï¿½thode dï¿½termine l'audio ï¿½ jouer en fonction du nom du NPC
     private FMODUnity.EventReference GetNpcAudioEvent(string npcName)
     {
-        //pour associer le NPC à un événement FMOD
+        //pour associer le NPC ï¿½ un ï¿½vï¿½nement FMOD
         switch (npcName)
         {
             case "pretre":
@@ -173,7 +184,7 @@ public class NPC : MonoBehaviour
                 return FmodEvents.instance.Athlete;  // Assure-toi que FmodEvents.Veuve est un EventReference
 
             default:
-                return FmodEvents.instance.Null;  // Valeur par défaut
+                return FmodEvents.instance.Null;  // Valeur par dï¿½faut
         }
     }
 
