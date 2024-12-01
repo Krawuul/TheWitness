@@ -15,6 +15,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float walkSpeed = 3f;
     [SerializeField] private float runSpeed = 5.2f;
     [SerializeField] private Transform orientation;
+    [SerializeField] private GameObject cross1;
+    [SerializeField] private GameObject cross2;
 
     private PlayerInputs playerInputAction;
     private CameraControl cameraControl;
@@ -119,6 +121,9 @@ public class PlayerControl : MonoBehaviour
         SetInputs();
 
         objectInSight = CheckInSight();
+
+        cross1.SetActive(objectInSight != null);
+        cross2.SetActive(objectInSight == null);
     }
 
     private void FixedUpdate()
@@ -149,9 +154,15 @@ public class PlayerControl : MonoBehaviour
     private RaycastHit? CheckInSight()
     {
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 10f))
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1.5f))
         {
-            return hit;
+            IInteractable interactable;
+            ICollectable collectable;
+            if (hit.collider.TryGetComponent<IInteractable>(out interactable) || hit.collider.TryGetComponent<ICollectable>(out collectable))
+            {
+                return hit;
+            }
+            
         }
 
         return null;
