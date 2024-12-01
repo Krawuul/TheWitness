@@ -21,6 +21,11 @@ public class Notebook : MonoBehaviour
 
     #region Methods
 
+    private void Start()
+    {
+        UnlockResident(3);
+    }
+
     public void QuestPanel()
     {
         AllPanel(false);
