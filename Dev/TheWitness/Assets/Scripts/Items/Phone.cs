@@ -13,6 +13,13 @@ public class Phone : MonoBehaviour,IInteractable
             ring = false;
             SubtitleManager.instance.InvokeSubTitle("E" + GameManager.instance.GameCheckPoint, "The Phone");
             GameManager.instance.OnNextStep();
+            for(int i = 0; i < checkPoints.Length; i++) 
+            {
+                if(GameManager.instance.GameCheckPoint == checkPoints[i])
+                {
+                    checkPoints[i] = -10;
+                }
+            }
         }
     }
 
@@ -20,7 +27,7 @@ public class Phone : MonoBehaviour,IInteractable
     // Update is called once per frame
     void Update()
     {
-        if(!ring && checkPoints.Contains( GameManager.instance.GameCheckPoint))
+        if(!ring && checkPoints.Contains( GameManager.instance.GameCheckPoint) )
         {
             ring = true;
 
