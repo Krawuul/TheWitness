@@ -7,7 +7,7 @@ public class Bed : MonoBehaviour, IInteractable
     {
         if (Manager.CanvasManager.instance.IsFade) return;
         GameManager.instance.NextDay();
-        Manager.CanvasManager.instance.Fade();
+        
     }
 
     #endregion

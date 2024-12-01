@@ -2,6 +2,7 @@ using Manager;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using Utils;
@@ -23,6 +24,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private int gameCheckPoint =0;
     private int nbNpcs = 7;
     private int npcVisited = 0;
+    Vector3 startPosPlayer;
     #endregion
 
     #region Getters & Setters
@@ -71,7 +73,8 @@ public class GameManager : Singleton<GameManager>
         eventManager.events.Add("PRESENTATION", presentationEvent);
         eventManager.events.Add("ALL_DIALOGUE", doorsShutDown);
         
-        gameTime.day = ScheduleManager.DAYS.SATURDAY;
+        gameTime.timestep = ScheduleManager.TIMESTEP.EVENING;
+        gameTime.day = ScheduleManager.DAYS.FRIDAY;
 
         
     }
@@ -79,6 +82,7 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         SubtitleManager.instance.InvokeSubTitle("INTRO", "Narrator");
+        startPosPlayer = player.transform.position;
     }
     public void OpenCloseInventory()
     {
@@ -111,6 +115,8 @@ public class GameManager : Singleton<GameManager>
     {
         gameTime.day = (ScheduleManager.DAYS)(((int)gameTime.day + 1) % (int)ScheduleManager.DAYS.COUNT);
         gameTime.timestep = ScheduleManager.TIMESTEP.MORNING;
+        Manager.CanvasManager.instance.Fade();
+        StartCoroutine(ReplacePlayer());
     }
 
     public void NextTimeStep()
@@ -120,6 +126,12 @@ public class GameManager : Singleton<GameManager>
         {
             NextDay();
         }
+    }
+
+    IEnumerator ReplacePlayer()
+    {
+        yield return new WaitForSeconds(2.5f);
+        player.transform.position = startPosPlayer;
     }
 
     public void OnNextStep()
