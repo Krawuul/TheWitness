@@ -23,6 +23,9 @@ public class Phone : MonoBehaviour,IInteractable
         if(!ring && checkPoints.Contains( GameManager.instance.GameCheckPoint))
         {
             ring = true;
+
+            AudioManager.instance.PlayOneShot(FmodEvents.instance.PhoneRing, this.transform.position);
+
         }
     }
 }

@@ -25,6 +25,9 @@ public class FmodEvents : MonoBehaviour
     [field: Header("KnockDoor SFX")]
     [field: SerializeField] public EventReference KnockDoor { get; private set; }
 
+    [field: Header("PhoneRing SFX")]
+    [field: SerializeField] public EventReference PhoneRing { get; private set; }
+
     //Dialogue
     [field: Header("Priest SFX")]
     [field: SerializeField] public EventReference Priest { get; private set; }
@@ -43,6 +46,7 @@ public class FmodEvents : MonoBehaviour
 
     [field: Header("OldWoman SFX")]
     [field: SerializeField] public EventReference OldWoman { get; private set; }
+
 
 
     //INSTANCE NULL
