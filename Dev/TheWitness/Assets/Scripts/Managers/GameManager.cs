@@ -1,3 +1,4 @@
+using Manager;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ public class GameManager : Singleton<GameManager>
     }
     [SerializeField] private GameTime gameTime ;
     [SerializeField] private int gameCheckPoint =0;
-    private int nbNpcs = 6;
+    private int nbNpcs = 7;
     private int npcVisited = 0;
     #endregion
 
@@ -71,8 +72,14 @@ public class GameManager : Singleton<GameManager>
         eventManager.events.Add("ALL_DIALOGUE", doorsShutDown);
         
         gameTime.day = ScheduleManager.DAYS.SATURDAY;
+
+        
     }
 
+    private void Start()
+    {
+        SubtitleManager.instance.InvokeSubTitle("INTRO", "Narrator");
+    }
     public void OpenCloseInventory()
     {
         if (notebookUI.gameObject.activeSelf)
