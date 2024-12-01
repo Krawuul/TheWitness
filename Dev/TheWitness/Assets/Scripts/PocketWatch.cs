@@ -50,7 +50,7 @@ public class PocketWatch : Singleton<PocketWatch>
                 gameObject.SetActive(false);
             }
         }
-        transform.rotation = Quaternion.LookRotation(cameraA.transform.position - transform.position, cameraA.transform.up);
+        transform.rotation = Quaternion.LookRotation(cameraA.transform.parent.position - transform.position, cameraA.transform.parent.up);
     }
 
     public void ShowWatch()

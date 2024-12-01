@@ -104,12 +104,11 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
-        interacting = SubtitleManager.instance.subtitlePlaying;
+        //interacting = SubtitleManager.instance.subtitlePlaying;
 
         if (objectInHand != null)
         {
             objectInHand.Show();
-            interacting = true;
         }
 
         // Movement & Detection
