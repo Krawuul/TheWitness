@@ -53,6 +53,8 @@ MonoBehaviour:
   head: {fileID: 269808262663546311}
   playerPos: {fileID: 1563859410596873263}
   lights: {fileID: 0}
+  inverse: 1
+  inverse2: 1
   dialoguesCheckPoints: 0b0000000c000000
 --- !u!1 &3617549079471875327
 GameObject:
@@ -79,7 +81,7 @@ Transform:
   m_GameObject: {fileID: 3617549079471875327}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.794, z: 0}
+  m_LocalPosition: {x: 0, y: 1.748, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -151,13 +153,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6338292808748321867}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.0000006705522}
   m_LocalPosition: {x: -2.08, y: 0, z: -25.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3151104225547922530}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &9097730182068781241
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +222,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 60031c578db411747ab78466033d2587, type: 2}
+  - {fileID: 2100000, guid: 381f5450a4f238d43b1eaac99dbbca59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
