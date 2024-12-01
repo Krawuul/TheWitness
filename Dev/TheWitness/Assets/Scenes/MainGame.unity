@@ -20574,7 +20574,7 @@ MonoBehaviour:
   gameTime:
     day: 0
     timestep: 0
-  gameCheckPoint: 1
+  gameCheckPoint: 0
 --- !u!4 &460735033
 Transform:
   m_ObjectHideFlags: 0
