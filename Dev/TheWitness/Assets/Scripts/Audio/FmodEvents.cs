@@ -51,6 +51,11 @@ public class FmodEvents : MonoBehaviour
     [field: SerializeField] public EventReference PhoneVoice { get; private set; }
 
 
+    //Menu
+    [field: Header("Menu SFX")]
+    [field: SerializeField] public EventReference Menu { get; private set; }
+
+
 
     //INSTANCE NULL
     [field: Header("NULL SFX")]
