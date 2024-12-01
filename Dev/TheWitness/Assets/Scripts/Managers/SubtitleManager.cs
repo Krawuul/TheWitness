@@ -134,7 +134,7 @@ namespace Manager
 
                 if (_subtitle.nextSentenceByTime)
                 {
-                    yield return new WaitForSeconds(m_currentSentence.time );
+                    yield return new WaitForSeconds(m_currentSentence.time);
                 }
                 else
                 {

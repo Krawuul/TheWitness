@@ -109,6 +109,7 @@ public class PlayerControl : MonoBehaviour
         if (objectInHand != null)
         {
             objectInHand.Show();
+            interacting = true;
         }
 
         // Movement & Detection

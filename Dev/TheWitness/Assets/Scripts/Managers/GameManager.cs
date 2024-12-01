@@ -23,6 +23,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private int gameCheckPoint =0;
     private int nbNpcs = 7;
     private int npcVisited = 0;
+    Vector3 startPos;
     #endregion
 
     #region Getters & Setters
@@ -72,13 +73,14 @@ public class GameManager : Singleton<GameManager>
         eventManager.events.Add("ALL_DIALOGUE", doorsShutDown);
         
         gameTime.day = ScheduleManager.DAYS.SATURDAY;
-
+        startPos = player.transform.position;
         
     }
 
     private void Start()
     {
         SubtitleManager.instance.InvokeSubTitle("INTRO", "Narrator");
+
     }
     public void OpenCloseInventory()
     {
@@ -111,6 +113,14 @@ public class GameManager : Singleton<GameManager>
     {
         gameTime.day = (ScheduleManager.DAYS)(((int)gameTime.day + 1) % (int)ScheduleManager.DAYS.COUNT);
         gameTime.timestep = ScheduleManager.TIMESTEP.MORNING;
+        Manager.CanvasManager.instance.Fade();
+
+    }
+
+    IEnumerator PlacePlayer()
+    {
+        yield return new WaitForSeconds(2.5f);
+        player.transform.position = startPos;
     }
 
     public void NextTimeStep()
