@@ -50,6 +50,13 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopSound(FMODUnity.EventReference soundEvent)
+    {
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(soundEvent);
+        instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);  // Utilisez ALLOWFADEOUT si vous voulez un arrêt progressif.
+        instance.release();
+    }
+
     private void OnDestroy()
     {
         CleanUp();

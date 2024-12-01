@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using Manager;
 using System.Linq;
 using UnityEngine;
@@ -5,15 +6,30 @@ using UnityEngine;
 public class Phone : MonoBehaviour,IInteractable
 {
     [SerializeField] int[] checkPoints;
-    bool ring = false; 
+    bool ring = false;
+
+    //Audio
+    private EventInstance PhoneRing;
+
+    private void Start()
+    {
+        //audio
+        PhoneRing = AudioManager.instance.CreateInstance(FmodEvents.instance.PhoneRing);
+
+    }
     public void Interact()
     {
         if(ring && !SubtitleManager.instance.subtitlePlaying)
         {
+
+            PhoneRing.stop(STOP_MODE.ALLOWFADEOUT);
             ring = false;
             SubtitleManager.instance.InvokeSubTitle("E" + GameManager.instance.GameCheckPoint, "The Phone");
             GameManager.instance.OnNextStep();
-            for(int i = 0; i < checkPoints.Length; i++) 
+
+            AudioManager.instance.PlayOneShot(FmodEvents.instance.PhoneVoice, this.transform.position);
+
+            for (int i = 0; i < checkPoints.Length; i++) 
             {
                 if(GameManager.instance.GameCheckPoint == checkPoints[i])
                 {
@@ -31,7 +47,8 @@ public class Phone : MonoBehaviour,IInteractable
         {
             ring = true;
 
-            AudioManager.instance.PlayOneShot(FmodEvents.instance.PhoneRing, this.transform.position);
+            PhoneRing.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(this.transform.position));
+            PhoneRing.start();
 
         }
     }
