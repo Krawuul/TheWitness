@@ -125,6 +125,9 @@ MonoBehaviour:
   visual: {fileID: 1819100078231846730}
   head: {fileID: 2715017586788470682}
   playerPos: {fileID: 8649133328606268771}
+  lights: {fileID: 0}
+  inverse: 1
+  inverse2: 1
   dialoguesCheckPoints: 0100000003000000
 --- !u!1 &5972733421719970630
 GameObject:
@@ -257,7 +260,7 @@ Transform:
   m_GameObject: {fileID: 8734135537595620492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.08, y: 0, z: 7.096}
+  m_LocalPosition: {x: -1.991, y: 0, z: 7.382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

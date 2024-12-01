@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638686792479179316
+  lastModified: 638686791007668509
   FileSizes:
   - Name: Desktop
-    Value: 1572
+    Value: 1534
   Exists: 1
 --- !u!114 &-8208192762814915736
 MonoBehaviour:
@@ -121,33 +121,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-4935509219856709986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/PhoneRing
-  m_EditorClassIdentifier: 
-  Path: event:/PhoneRing
-  Guid:
-    Data1: 995288592
-    Data2: 1214131738
-    Data3: -33377364
-    Data4: 1373338415
-  Banks:
-  - {fileID: 5583794399136872509}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 32857
 --- !u!114 &-4455693153478819382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +136,7 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638686792479179316
+  lastModified: 638686791007662455
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -318,7 +291,7 @@ MonoBehaviour:
   - {fileID: 5583794399136872509}
   IsStream: 1
   Is3D: 1
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -372,7 +345,7 @@ MonoBehaviour:
   - {fileID: 5583794399136872509}
   IsStream: 1
   Is3D: 1
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -412,13 +385,12 @@ MonoBehaviour:
   - {fileID: -6015594178234030660}
   - {fileID: 89364342760780590}
   - {fileID: 6278895011115422150}
-  - {fileID: -4935509219856709986}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4455693153478819382}
   StringsBanks:
   - {fileID: -8440224136109201072}
-  cacheTime: 638686792595169520
+  cacheTime: 638686791117150882
   cacheVersion: 131621
 --- !u!114 &89364342760780590
 MonoBehaviour:
@@ -469,7 +441,7 @@ MonoBehaviour:
   - {fileID: 5583794399136872509}
   IsStream: 1
   Is3D: 1
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -678,7 +650,7 @@ MonoBehaviour:
   - {fileID: 5583794399136872509}
   IsStream: 1
   Is3D: 1
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -718,10 +690,10 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638686792595169520
+  lastModified: 638686791117150882
   FileSizes:
   - Name: Desktop
-    Value: 13969536
+    Value: 13540768
   Exists: 1
 --- !u!114 &5698558363566431894
 MonoBehaviour:
@@ -832,7 +804,7 @@ MonoBehaviour:
   - {fileID: 5583794399136872509}
   IsStream: 1
   Is3D: 1
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -953,7 +925,7 @@ MonoBehaviour:
   - {fileID: 5583794399136872509}
   IsStream: 1
   Is3D: 1
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20

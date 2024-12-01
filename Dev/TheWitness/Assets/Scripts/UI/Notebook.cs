@@ -14,8 +14,8 @@ public class Notebook : MonoBehaviour
     [SerializeField] private InventoryUI inventoryUI;
 
     [SerializeField] private TextMeshProUGUI questTxt;
-    [SerializeField] private TextMeshProUGUI residentInfo;
     [SerializeField] private List<GameObject> residentIcon;
+    [SerializeField] private List<GameObject> residentInfos;
 
     #endregion
 
@@ -63,9 +63,18 @@ public class Notebook : MonoBehaviour
         residentIcon[id].SetActive(true);
     }
 
-    public void SetResidentInfo(string _info)
+    public void LookResidentInfo(int _id)
     {
-        residentInfo.text = _info;
+        ResetAllResidentInfo();
+        residentInfos[_id].SetActive(true);
+    }
+
+    public void ResetAllResidentInfo()
+    {
+        for (int i = 0; i < residentInfos.Count; i++)
+        {
+            residentInfos[i].SetActive(false);
+        }
     }
 
     public void AddItem(Item _item)
