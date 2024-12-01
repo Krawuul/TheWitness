@@ -54,6 +54,18 @@ public class GameManager : Singleton<GameManager>
                 }
             };
         });
+        
+        doorsShutDown.AddListener(() =>
+        {
+            foreach (var npc in GameObject.FindObjectsOfType<NPC>())
+            {
+                if (npc.npcAudioInstance.isValid())
+                {
+                    npc.npcAudioInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                    npc.npcAudioInstance.release();
+                }
+            };
+        });
         doorsShutDown.AddListener(NextTimeStep);
         eventManager.events.Add("PRESENTATION", presentationEvent);
         eventManager.events.Add("ALL_DIALOGUE", doorsShutDown);

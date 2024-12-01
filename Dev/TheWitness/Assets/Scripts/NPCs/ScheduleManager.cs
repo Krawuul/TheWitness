@@ -6,7 +6,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ScheduleManager : Singleton<ScheduleManager> 
+public class ScheduleManager : Singleton<ScheduleManager>
 {
     public enum DAYS
     {
@@ -34,46 +34,49 @@ public class ScheduleManager : Singleton<ScheduleManager>
     // Start is called before the first frame update
     void Awake()
     {
+        //var obj = Resources.Load(filepath) as TextAsset;   
+
         if (filepath.NullIfEmpty() == null)
         {
-            filepath = "Assets\\Resources\\NPCsSchedule.csv";
+            filepath = "NPCsSchedule";
         }
+
+
+        var obj = Resources.Load(filepath) as TextAsset;
         string[] read;
 
 
-        using (StreamReader sr = new StreamReader(filepath))
+        var dataLines = obj.text.Split('\n');
+        int id2 = 0;
+        for (int j = 1; j < dataLines.Length; j++)
         {
-            string dataReceived;
-            int id2 = 0;
-            dataReceived = sr.ReadLine();
-            while ((dataReceived = sr.ReadLine()) != null)
+            read = dataLines[j].Split(',', StringSplitOptions.RemoveEmptyEntries);
+            List<string> listNpc = new List<string>();
+            int id1 = 0;
+            for (int i = 1; i < read.Length; i++)
             {
-                read = dataReceived.Split(',', StringSplitOptions.RemoveEmptyEntries);
-                List<string> listNpc = new List<string>();
-                int id1 = 0;
-                for (int i = 1; i < read.Length; i++)
+                var t = read[i].Split('\r');
+                if (t[0].Last() == '"')
                 {
-                    if (read[i].Last() == '"')
-                    {
-                        listNpc.Add(read[i].Substring(0, read[i].Length - 1).ToLower());
-                        string[] tArray = new string[listNpc.Count];
-                        listNpc.CopyTo(tArray);
-                        list[id1, id2] = tArray.ToList();
+                    listNpc.Add(t[0].Substring(0, t[0].Length - 1).ToLower());
+                    string[] tArray = new string[listNpc.Count];
+                    listNpc.CopyTo(tArray);
+                    list[id1, id2] = tArray.ToList();
 
-                        listNpc.Clear();
-                        id1++;
-                    }
-                    else
-                    {
-                        listNpc.Add(read[i].Substring(1).ToLower());
-                    }
+                    listNpc.Clear();
+                    id1++;
                 }
-
-
-                id1 = 0;
-                id2++;
+                else
+                {
+                    listNpc.Add(t[0].Substring(1).ToLower());
+                }
             }
+
+
+            id1 = 0;
+            id2++;
         }
+
 
         //Debug.Log(ToString());
         //

@@ -16,6 +16,8 @@ public class NPC : MonoBehaviour
     [SerializeField] Transform head;
     [SerializeField] Transform playerPos;
     [SerializeField] GameObject lights;
+    [SerializeField] float inverse = 1f;
+    [SerializeField] float inverse2 = 1f;
 
     Volume volume;
     bool canEnter = false;
@@ -28,7 +30,7 @@ public class NPC : MonoBehaviour
     Vector3 end;
 
     // Variables pour gérer l'audio et le mouvement
-    private FMOD.Studio.EventInstance npcAudioInstance;
+    public FMOD.Studio.EventInstance npcAudioInstance;
     private Vector3 lastPlayerPosition;
     private bool isDialoguePlaying = false;
 
@@ -36,8 +38,15 @@ public class NPC : MonoBehaviour
     {
         schedule = ScheduleManager.instance.GetSchedule(npcName.ToLower());
         dialoguesStates = new bool[dialoguesCheckPoints.Length + 1];
-        start = door.transform.position + door.transform.right * 3f - Vector3.right * 0.35f;
-        end = door.transform.position + door.transform.right * 0.2f - Vector3.right * 0.35f;
+        if (npcName != "veuve")
+        {
+            start = door.transform.position + door.transform.right * 3f * inverse - transform.right * 0.35f * inverse2;
+        }
+        else
+        {
+            start = door.transform.position + door.transform.right * 2f * inverse - transform.right * 0.35f * inverse2;
+        }
+        end = door.transform.position + door.transform.right * 0.2f * inverse - transform.right * 0.35f * inverse2;
         start.y = GameManager.instance.Player.transform.position.y;
         end.y = GameManager.instance.Player.transform.position.y;
         visual.transform.position = start;
@@ -61,9 +70,12 @@ public class NPC : MonoBehaviour
         }
         if (schedule[(int)GameManager.instance.GetTime().day, (int)GameManager.instance.GetTime().timestep] == 1)
         {
-            foreach (Transform light in lights.transform)
+            if (lights != null)
             {
-                light.gameObject.SetActive(false);
+                foreach (Transform light in lights.transform)
+                {
+                    light.gameObject.SetActive(false);
+                }
             }
             Bloom b;
             volume.profile.TryGet(out b);
@@ -111,9 +123,12 @@ public class NPC : MonoBehaviour
         {
             if (canEnter)
             {
-                foreach (Transform light in lights.transform)
+                if (lights != null)
                 {
-                    light.gameObject.SetActive(true);
+                    foreach (Transform light in lights.transform)
+                    {
+                        light.gameObject.SetActive(true);
+                    }
                 }
                 Bloom b;
                 volume.profile.TryGet(out b);
@@ -161,7 +176,7 @@ public class NPC : MonoBehaviour
             visual.transform.LookAt(new Vector3(GameManager.instance.Player.transform.position.x, visual.transform.position.y, GameManager.instance.Player.transform.position.z));
             timer = Mathf.Clamp(timer, 0f, comeTime);
             visual.transform.position = Vector3.Lerp(start, end, timer / comeTime);
-            Camera.main.transform.LookAt(head);
+            Camera.main.transform.parent.LookAt(head);
 
             if (door.IsClosed())
             {
@@ -201,10 +216,10 @@ public class NPC : MonoBehaviour
             case "vieille":
                 return FmodEvents.instance.OldWoman;
             case "nain":
-                return FmodEvents.instance.Dwarf;
+                return FmodEvents.instance.Dwarf;   
             case "boucher":
                 return FmodEvents.instance.Butcher;
-            case "athlete":
+            case "sportif":
                 return FmodEvents.instance.Athlete;
             default:
                 return FmodEvents.instance.Null;
