@@ -21,7 +21,7 @@ public class Phone : MonoBehaviour,IInteractable
     {
         if(ring && !SubtitleManager.instance.subtitlePlaying)
         {
-
+            PhoneRing.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(this.transform.position));
             PhoneRing.stop(STOP_MODE.ALLOWFADEOUT);
             ring = false;
             SubtitleManager.instance.InvokeSubTitle("E" + GameManager.instance.GameCheckPoint, "The Phone");
