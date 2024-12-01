@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using Utils;
 
 public class GameManager : Singleton<GameManager>
@@ -24,6 +25,7 @@ public class GameManager : Singleton<GameManager>
     private int nbNpcs = 7;
     private int npcVisited = 0;
     Vector3 startPos;
+    bool endstarted = false;
     #endregion
 
     #region Getters & Setters
@@ -56,7 +58,14 @@ public class GameManager : Singleton<GameManager>
                 }
             };
         });
-        
+        doorsShutDown.AddListener(() =>
+        {
+            if (gameCheckPoint == 16)
+            {
+                StartCoroutine(EndGame());
+            }
+
+        });
         doorsShutDown.AddListener(() =>
         {
             foreach (var npc in GameObject.FindObjectsOfType<NPC>())
@@ -76,6 +85,14 @@ public class GameManager : Singleton<GameManager>
         startPos = player.transform.position;
         
     }
+    IEnumerator EndGame()
+    {
+        endstarted = true;
+        yield return new WaitForSeconds(30f);
+
+        SceneManager.LoadScene(0);
+    }
+
 
     private void Start()
     {
@@ -114,7 +131,7 @@ public class GameManager : Singleton<GameManager>
         gameTime.day = (ScheduleManager.DAYS)(((int)gameTime.day + 1) % (int)ScheduleManager.DAYS.COUNT);
         gameTime.timestep = ScheduleManager.TIMESTEP.MORNING;
         Manager.CanvasManager.instance.Fade();
-
+        StartCoroutine(PlacePlayer());
     }
 
     IEnumerator PlacePlayer()
@@ -129,6 +146,14 @@ public class GameManager : Singleton<GameManager>
         if(gameTime.timestep == ScheduleManager.TIMESTEP.MORNING)
         {
             NextDay();
+        }
+    }
+
+    private void Update()
+    {
+        if(gameCheckPoint == 16 && !SubtitleManager.instance.subtitlePlaying && !endstarted)
+        {
+            SubtitleManager.instance.InvokeSubTitle("E16", "The Phone");
         }
     }
 
