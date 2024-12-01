@@ -34449,6 +34449,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 818992045}
   m_SourcePrefab: {fileID: 100100000, guid: 2c69a505d1beddb4ab345f2acd7035f7, type: 3}
+--- !u!1 &1025818768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3390296452431060284, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1097051123}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1026749114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53683,6 +53689,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4583378911079626138, guid: 8bf7b282025fa29478da32ccc6ded80f,
+        type: 3}
+      propertyPath: lights
+      value: 
+      objectReference: {fileID: 1025818768}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
