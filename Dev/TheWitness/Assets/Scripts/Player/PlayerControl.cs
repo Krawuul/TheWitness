@@ -61,6 +61,8 @@ public class PlayerControl : MonoBehaviour
         playerInputAction.InGame.Return.started += StopInteract;
 
         playerInputAction.InGame.Inventory.started += (context) => { GameManager.instance.OpenCloseInventory(); };
+
+        playerInputAction.InGame.Watch.started += (context) => { PocketWatch.instance.ShowWatch(); };
     }
 
     private void OnDisable()

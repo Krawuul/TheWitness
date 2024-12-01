@@ -191,7 +191,7 @@ public class NPC : MonoBehaviour
     {
         FMODUnity.EventReference audioEvent = GetNpcAudioEvent(npcName.ToLower());
         npcAudioInstance = FMODUnity.RuntimeManager.CreateInstance(audioEvent);
-        npcAudioInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(this.transform.position));
+        npcAudioInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(end));
 
         npcAudioInstance.start();
     }

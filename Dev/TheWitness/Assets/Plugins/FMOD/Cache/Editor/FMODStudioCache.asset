@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638685960162500648
+  lastModified: 638686565010116562
   FileSizes:
   - Name: Desktop
     Value: 1534
@@ -136,7 +136,7 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638685960162224203
+  lastModified: 638686565010107549
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -390,7 +390,7 @@ MonoBehaviour:
   - {fileID: -4455693153478819382}
   StringsBanks:
   - {fileID: -8440224136109201072}
-  cacheTime: 638685960669638897
+  cacheTime: 638686565119006687
   cacheVersion: 131621
 --- !u!114 &89364342760780590
 MonoBehaviour:
@@ -690,7 +690,7 @@ MonoBehaviour:
   Path: SoundSystem/AudioSoundSytem/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638685960669638897
+  lastModified: 638686565119006687
   FileSizes:
   - Name: Desktop
     Value: 13540768

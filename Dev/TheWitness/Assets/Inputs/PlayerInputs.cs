@@ -80,6 +80,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Watch"",
+                    ""type"": ""Button"",
+                    ""id"": ""7070e9cf-8417-43b0-8e11-60bb814534d3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -192,6 +201,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8cdb52c-ccbe-467c-a572-2c71c873e726"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Watch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +226,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_InGame_Interact = m_InGame.FindAction("Interact", throwIfNotFound: true);
         m_InGame_Return = m_InGame.FindAction("Return", throwIfNotFound: true);
         m_InGame_Inventory = m_InGame.FindAction("Inventory", throwIfNotFound: true);
+        m_InGame_Watch = m_InGame.FindAction("Watch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -273,6 +294,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_Interact;
     private readonly InputAction m_InGame_Return;
     private readonly InputAction m_InGame_Inventory;
+    private readonly InputAction m_InGame_Watch;
     public struct InGameActions
     {
         private @PlayerInputs m_Wrapper;
@@ -283,6 +305,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_InGame_Interact;
         public InputAction @Return => m_Wrapper.m_InGame_Return;
         public InputAction @Inventory => m_Wrapper.m_InGame_Inventory;
+        public InputAction @Watch => m_Wrapper.m_InGame_Watch;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -310,6 +333,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Inventory.started += instance.OnInventory;
             @Inventory.performed += instance.OnInventory;
             @Inventory.canceled += instance.OnInventory;
+            @Watch.started += instance.OnWatch;
+            @Watch.performed += instance.OnWatch;
+            @Watch.canceled += instance.OnWatch;
         }
 
         private void UnregisterCallbacks(IInGameActions instance)
@@ -332,6 +358,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Inventory.started -= instance.OnInventory;
             @Inventory.performed -= instance.OnInventory;
             @Inventory.canceled -= instance.OnInventory;
+            @Watch.started -= instance.OnWatch;
+            @Watch.performed -= instance.OnWatch;
+            @Watch.canceled -= instance.OnWatch;
         }
 
         public void RemoveCallbacks(IInGameActions instance)
@@ -357,5 +386,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnReturn(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
+        void OnWatch(InputAction.CallbackContext context);
     }
 }
