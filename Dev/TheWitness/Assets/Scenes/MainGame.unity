@@ -20618,7 +20618,7 @@ MonoBehaviour:
   gameTime:
     day: 0
     timestep: 0
-  gameCheckPoint: 4
+  gameCheckPoint: 3
 --- !u!4 &460735033
 Transform:
   m_ObjectHideFlags: 0
@@ -21974,6 +21974,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3375206435609207711, guid: dce103c095339e34a8663f2ba85eb812,
         type: 3}
+      propertyPath: <PhoneRing>k__BackingField.Path
+      value: event:/PhoneRing
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375206435609207711, guid: dce103c095339e34a8663f2ba85eb812,
+        type: 3}
       propertyPath: <Dwarf>k__BackingField.Guid.Data1
       value: -1989846547
       objectReference: {fileID: 0}
@@ -22151,6 +22156,26 @@ PrefabInstance:
         type: 3}
       propertyPath: <KnockDoor>k__BackingField.Guid.Data4
       value: -168386169
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375206435609207711, guid: dce103c095339e34a8663f2ba85eb812,
+        type: 3}
+      propertyPath: <PhoneRing>k__BackingField.Guid.Data1
+      value: 995288592
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375206435609207711, guid: dce103c095339e34a8663f2ba85eb812,
+        type: 3}
+      propertyPath: <PhoneRing>k__BackingField.Guid.Data2
+      value: 1214131738
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375206435609207711, guid: dce103c095339e34a8663f2ba85eb812,
+        type: 3}
+      propertyPath: <PhoneRing>k__BackingField.Guid.Data3
+      value: -33377364
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375206435609207711, guid: dce103c095339e34a8663f2ba85eb812,
+        type: 3}
+      propertyPath: <PhoneRing>k__BackingField.Guid.Data4
+      value: 1373338415
       objectReference: {fileID: 0}
     - target: {fileID: 5784244162698423152, guid: dce103c095339e34a8663f2ba85eb812,
         type: 3}
