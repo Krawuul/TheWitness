@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Notebook : MonoBehaviour
@@ -10,6 +11,11 @@ public class Notebook : MonoBehaviour
     [SerializeField] private GameObject residentPanel;
     [SerializeField] private GameObject schedulePanel;
     [SerializeField] private GameObject inventoryPanel;
+    [SerializeField] private InventoryUI inventoryUI;
+
+    [SerializeField] private TextMeshProUGUI questTxt;
+    [SerializeField] private TextMeshProUGUI residentInfo;
+    [SerializeField] private List<GameObject> residentIcon;
 
     #endregion
 
@@ -45,6 +51,26 @@ public class Notebook : MonoBehaviour
         residentPanel.SetActive(_state);
         schedulePanel.SetActive(_state);
         inventoryPanel.SetActive(_state);
+    }
+
+    public void SetQuest(string quests)
+    {
+        questTxt.text = quests;
+    }
+
+    public void UnlockResident(int id)
+    {
+        residentIcon[id].SetActive(true);
+    }
+
+    public void SetResidentInfo(string _info)
+    {
+        residentInfo.text = _info;
+    }
+
+    public void AddItem(Item _item)
+    {
+        inventoryUI.AddItem(_item);
     }
 
     #endregion

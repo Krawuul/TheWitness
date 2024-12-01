@@ -17,7 +17,7 @@ public class Inventory
         if (items.Contains(item)) return;
 
         items.Add(item);
-        GameManager.instance.InventoryUI.GetComponentInChildren<InventoryUI>().AddItem(item);
+        GameManager.instance.Notebook.AddItem(item);
         Debug.Log("Item of name : " + item.name + " has been stored!");
     }
 

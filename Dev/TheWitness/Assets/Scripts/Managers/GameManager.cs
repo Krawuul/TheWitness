@@ -10,7 +10,7 @@ public class GameManager : Singleton<GameManager>
     #region Properties
 
     private PlayerControl player;
-    private Notebook inventoryUI;
+    private Notebook notebookUI;
     private bool inMenu = false;
     [Serializable]
     public struct GameTime
@@ -27,7 +27,7 @@ public class GameManager : Singleton<GameManager>
     #region Getters & Setters
 
     public PlayerControl Player { get =>  player; }
-    public Notebook InventoryUI { get => inventoryUI; }
+    public Notebook Notebook { get => notebookUI; }
     public int GameCheckPoint { get => gameCheckPoint; set => gameCheckPoint = value; }
     public bool InMenu { get => inMenu; }
 
@@ -39,7 +39,7 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
         player = FindObjectOfType<PlayerControl>(true);
-        inventoryUI = FindObjectOfType<Notebook>(true);
+        notebookUI = FindObjectOfType<Notebook>(true);
         EventsManager eventManager = FindObjectOfType<EventsManager>(true);
         UnityEvent presentationEvent = new UnityEvent();
         UnityEvent doorsShutDown = new UnityEvent();
@@ -75,15 +75,15 @@ public class GameManager : Singleton<GameManager>
 
     public void OpenCloseInventory()
     {
-        if (inventoryUI.gameObject.activeSelf)
+        if (notebookUI.gameObject.activeSelf)
         {
-            inventoryUI.gameObject.SetActive(false);
+            notebookUI.gameObject.SetActive(false);
             inMenu = false;
             SetCursorLockState(true);
         } 
         else
         {
-            inventoryUI.gameObject.SetActive(true);
+            notebookUI.gameObject.SetActive(true);
             inMenu = true;
             SetCursorLockState(false);
         }
