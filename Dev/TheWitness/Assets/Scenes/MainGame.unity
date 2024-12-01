@@ -23875,7 +23875,7 @@ GameObject:
   - component: {fileID: 573401483}
   m_Layer: 0
   m_Name: PocketWatch
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48844,7 +48844,10 @@ MonoBehaviour:
   endPos: {x: 0, y: 0, z: 0}
   hours: {fileID: 1927256294}
   time: 0.5
-  player: {fileID: 0}
+  cameraA: {fileID: 573401486}
+  morningColor: {r: 1, g: 0.68875784, b: 0.495283, a: 1}
+  eveningColor: {r: 0.8050314, g: 0.7971698, b: 1, a: 1}
+  lightA: {fileID: 1594598228}
 --- !u!1 &1462650614 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3138693258556526964, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -51709,8 +51712,8 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
-  m_Intensity: 0.51
+  m_Color: {r: 0.8050314, g: 0.7971698, b: 1, a: 1}
+  m_Intensity: 0.03
   m_Range: 0.29
   m_SpotAngle: 141.15454
   m_InnerSpotAngle: 62.97043
