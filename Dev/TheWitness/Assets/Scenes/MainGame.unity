@@ -53304,6 +53304,74 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -91709526252800621, guid: 2c69a505d1beddb4ab345f2acd7035f7, type: 3}
+--- !u!1001 &1970547664
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6265665043122402971, guid: 128436241dd08da4295015cfa4a560b3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.084827
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265665043122402971, guid: 128436241dd08da4295015cfa4a560b3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265665043122402971, guid: 128436241dd08da4295015cfa4a560b3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.322
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265665043122402971, guid: 128436241dd08da4295015cfa4a560b3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265665043122402971, guid: 128436241dd08da4295015cfa4a560b3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265665043122402971, guid: 128436241dd08da4295015cfa4a560b3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265665043122402971, guid: 128436241dd08da4295015cfa4a560b3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265665043122402971, guid: 128436241dd08da4295015cfa4a560b3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265665043122402971, guid: 128436241dd08da4295015cfa4a560b3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265665043122402971, guid: 128436241dd08da4295015cfa4a560b3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949038300486614029, guid: 128436241dd08da4295015cfa4a560b3,
+        type: 3}
+      propertyPath: m_Name
+      value: Crime Scene
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 128436241dd08da4295015cfa4a560b3, type: 3}
 --- !u!1 &1970698491 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 881534573456521298, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -56917,3 +56985,4 @@ SceneRoots:
   - {fileID: 174925662}
   - {fileID: 954278618}
   - {fileID: 636041361}
+  - {fileID: 1970547664}
