@@ -31,6 +31,7 @@ public class Item : MonoBehaviour, ICollectable
         Debug.Log("Pickup item of name : " + info);
         playerControl = _player;
 
+        GetComponent<Collider>().enabled = false;
         Vector3 forward = (transform.position - playerControl.CameraControl.transform.position).normalized;
         
         nxtQuat = transform.rotation;
