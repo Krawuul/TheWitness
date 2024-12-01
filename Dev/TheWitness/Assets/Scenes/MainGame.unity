@@ -12691,12 +12691,17 @@ PrefabInstance:
     - target: {fileID: 3767088576254529499, guid: b22b5a87d16517140b2c4e4687ce8a26,
         type: 3}
       propertyPath: info
-      value: Receipe
+      value: Receipt
       objectReference: {fileID: 0}
     - target: {fileID: 3767088576254529499, guid: b22b5a87d16517140b2c4e4687ce8a26,
         type: 3}
       propertyPath: infoplus
-      value: A fast-food receipe, seems like someone was hungry.
+      value: A fast-food receipt, seems like someone was hungry.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767088576254529499, guid: b22b5a87d16517140b2c4e4687ce8a26,
+        type: 3}
+      propertyPath: newQuest
+      value: Talk to the athlete about the receipt.
       objectReference: {fileID: 0}
     - target: {fileID: 8177989905406941734, guid: b22b5a87d16517140b2c4e4687ce8a26,
         type: 3}
@@ -12998,6 +13003,11 @@ PrefabInstance:
         type: 3}
       propertyPath: infoplus
       value: The old lady notebook, a lot of names are in there.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556962359413094633, guid: 5bc504e80a0c16644b329032b1e6f3b3,
+        type: 3}
+      propertyPath: newQuest
+      value: Answer phone.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23338,6 +23348,11 @@ PrefabInstance:
       propertyPath: infoplus
       value: A butcher knife, useful for a crime...
       objectReference: {fileID: 0}
+    - target: {fileID: 6779341749840466478, guid: 60368c04136c274459153133636787d1,
+        type: 3}
+      propertyPath: newQuest
+      value: Talk to the butcher.
+      objectReference: {fileID: 0}
     - target: {fileID: 7994210439874606045, guid: 60368c04136c274459153133636787d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32811,6 +32826,11 @@ PrefabInstance:
         type: 3}
       propertyPath: infoplus
       value: A beautiful shiny jewel.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609559335811903599, guid: 397849723bd858e48ac7cb1f5310f663,
+        type: 3}
+      propertyPath: newQuest
+      value: Talk to the widow.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42490,6 +42510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info: 
   infoplus: 
+  newQuest: 
 --- !u!1 &1262057636 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 429708938549026277, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
@@ -43812,6 +43833,11 @@ PrefabInstance:
         type: 3}
       propertyPath: infoplus
       value: The holy bible, a must have for a priest.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650306672290290745, guid: 9a9951169864d794cbdd3a4b89781887,
+        type: 3}
+      propertyPath: newQuest
+      value: Talk to the priest.
       objectReference: {fileID: 0}
     - target: {fileID: 4931739233058077891, guid: 9a9951169864d794cbdd3a4b89781887,
         type: 3}
@@ -55216,6 +55242,11 @@ PrefabInstance:
       propertyPath: infoplus
       value: A gag... some clues should never be found...
       objectReference: {fileID: 0}
+    - target: {fileID: 8134571691596865393, guid: 80b6f04300040c54b852cbb73e98139d,
+        type: 3}
+      propertyPath: newQuest
+      value: Talk to the dwarf about the gag.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -56777,7 +56808,42 @@ PrefabInstance:
       objectReference: {fileID: 1472614354}
     - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
         type: 3}
+      propertyPath: m_objectEvent.events.Array.data[0].m_event.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
+      propertyPath: m_objectEvent.events.Array.data[1].m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
+      propertyPath: m_objectEvent.events.Array.data[2].m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
+      propertyPath: m_objectEvent.events.Array.data[3].m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
+      propertyPath: m_objectEvent.events.Array.data[4].m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
       propertyPath: m_objectEvent.events.Array.data[5].m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
+      propertyPath: m_objectEvent.events.Array.data[5].m_event.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
+      propertyPath: m_objectEvent.events.Array.data[6].m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1472614354}
     - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
@@ -56787,12 +56853,52 @@ PrefabInstance:
       objectReference: {fileID: 1472614354}
     - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
         type: 3}
+      propertyPath: m_objectEvent.events.Array.data[7].m_event.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
+      propertyPath: m_objectEvent.events.Array.data[8].m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
+      propertyPath: m_objectEvent.events.Array.data[9].m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
       propertyPath: m_objectEvent.events.Array.data[10].m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1472614354}
     - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
         type: 3}
+      propertyPath: m_objectEvent.events.Array.data[10].m_event.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
+      propertyPath: m_objectEvent.events.Array.data[11].m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
       propertyPath: m_objectEvent.events.Array.data[12].m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
+      propertyPath: m_objectEvent.events.Array.data[12].m_event.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
+      propertyPath: m_objectEvent.events.Array.data[13].m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1472614354}
+    - target: {fileID: 2390827425016851572, guid: 03d748fb61ed3274eb1848ea46fc780b,
+        type: 3}
+      propertyPath: m_objectEvent.events.Array.data[14].m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1472614354}
     m_RemovedComponents: []

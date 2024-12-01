@@ -62,22 +62,82 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 5
+              m_FloatArgument: 0
+              m_StringArgument: Go to the priest appartment.
+              m_BoolArgument: 0
+            m_CallState: 2
     - m_id: E2
       m_event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Talk the priest about his secret.
+              m_BoolArgument: 0
+            m_CallState: 2
     - m_id: E3
       m_event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Go talk to the dwarf.
+              m_BoolArgument: 0
+            m_CallState: 2
     - m_id: E4
       m_event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Find a way to talk to the dwarf.
+              m_BoolArgument: 0
+            m_CallState: 2
     - m_id: E5
       m_event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Talk to the dwarf.
+              m_BoolArgument: 0
+            m_CallState: 2
     - m_id: E6
       m_event:
         m_PersistentCalls:
@@ -94,10 +154,34 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 2
+              m_FloatArgument: 0
+              m_StringArgument: Investigate the dwarf's appartment.
+              m_BoolArgument: 0
+            m_CallState: 2
     - m_id: E7
       m_event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Talk to the old lady.
+              m_BoolArgument: 0
+            m_CallState: 2
     - m_id: E8
       m_event:
         m_PersistentCalls:
@@ -114,14 +198,50 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 4
+              m_FloatArgument: 0
+              m_StringArgument: Search in the old lady's appartment.
+              m_BoolArgument: 0
+            m_CallState: 2
     - m_id: E9
       m_event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Go talk to the dwarf about the red notebook.
+              m_BoolArgument: 0
+            m_CallState: 2
     - m_id: E10
       m_event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Talk to the athlete.
+              m_BoolArgument: 0
+            m_CallState: 2
     - m_id: E11
       m_event:
         m_PersistentCalls:
@@ -138,10 +258,34 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Search in the athlete's appartement.
+              m_BoolArgument: 0
+            m_CallState: 2
     - m_id: E12
       m_event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Talk to the butcher.
+              m_BoolArgument: 0
+            m_CallState: 2
     - m_id: E13
       m_event:
         m_PersistentCalls:
@@ -158,15 +302,47 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: Search in the butcher's appartement.
+              m_BoolArgument: 0
+            m_CallState: 2
     - m_id: E14
       m_event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Answer phone.
+              m_BoolArgument: 0
+            m_CallState: 2
     - m_id: E15
       m_event:
         m_PersistentCalls:
-          m_Calls: []
-    - m_id: E16
-      m_event:
-        m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: Notebook, Assembly-CSharp
+            m_MethodName: SetQuest
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Search in your closet.
+              m_BoolArgument: 0
+            m_CallState: 2

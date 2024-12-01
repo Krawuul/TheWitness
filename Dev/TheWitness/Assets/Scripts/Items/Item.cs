@@ -6,6 +6,7 @@ public class Item : MonoBehaviour, ICollectable
 
     [SerializeField] private string info;
     [SerializeField][TextArea] private string infoplus;
+    [SerializeField][TextArea] private string newQuest;
     private Quaternion nxtQuat;
     private float dampening = 12f;
     private float sensitivity = 0.4f;
@@ -31,6 +32,7 @@ public class Item : MonoBehaviour, ICollectable
         Debug.Log("Pickup item of name : " + info);
         playerControl = _player;
 
+        if (newQuest != "") { GameManager.instance.Notebook.SetQuest(newQuest); }
         GetComponent<Collider>().enabled = false;
         Vector3 forward = (transform.position - playerControl.CameraControl.transform.position).normalized;
         
