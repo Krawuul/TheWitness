@@ -29,22 +29,21 @@ public class ScheduleManager : Singleton<ScheduleManager>
         COUNT
     };
 
-    [SerializeField] string filepath;
-    List<string>[,] list = new List<string>[7, 4];
+    [SerializeField] private string filepath;
+    private List<string>[,] list = new List<string>[7, 4];
+
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
-        //var obj = Resources.Load(filepath) as TextAsset;   
+        //var obj = Resources.Load(filepath) as TextAsset;
 
         if (filepath.NullIfEmpty() == null)
         {
-            filepath = "NPCsSchedule";
+            filepath = "schedule";
         }
-
 
         var obj = Resources.Load(filepath) as TextAsset;
         string[] read;
-
 
         var dataLines = obj.text.Split('\n');
         int id2 = 0;
@@ -72,11 +71,9 @@ public class ScheduleManager : Singleton<ScheduleManager>
                 }
             }
 
-
             id1 = 0;
             id2++;
         }
-
 
         //Debug.Log(ToString());
         //
@@ -101,7 +98,6 @@ public class ScheduleManager : Singleton<ScheduleManager>
                 }
                 text += "\n";
             }
-
         }
         return text;
     }
