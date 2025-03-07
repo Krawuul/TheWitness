@@ -9,28 +9,29 @@ using UnityEngine.Rendering.Universal;
 
 public class NPC : MonoBehaviour
 {
-    [SerializeField] string npcName;
-    [SerializeField] string npcTrueName;
-    [SerializeField] Door door;
-    [SerializeField] GameObject visual;
-    [SerializeField] Transform head;
-    [SerializeField] Transform playerPos;
-    [SerializeField] GameObject lights;
-    [SerializeField] float inverse = 1f;
-    [SerializeField] float inverse2 = 1f;
+    [SerializeField] private string npcName;
+    [SerializeField] private string npcTrueName;
+    [SerializeField] private Door door;
+    [SerializeField] private GameObject visual;
+    [SerializeField] private Transform head;
+    [SerializeField] private Transform playerPos;
+    [SerializeField] private GameObject lights;
+    [SerializeField] private float inverse = 1f;
+    [SerializeField] private float inverse2 = 1f;
 
-    Volume volume;
-    bool canEnter = false;
-    int[,] schedule;
-    [SerializeField] int[] dialoguesCheckPoints;
-    bool[] dialoguesStates;
-    float timer = 0f;
-    float comeTime = 2f;
-    Vector3 start;
-    Vector3 end;
+    private Volume volume;
+    private bool canEnter = false;
+    private int[,] schedule;
+    [SerializeField] private int[] dialoguesCheckPoints;
+    private bool[] dialoguesStates;
+    private float timer = 0f;
+    private float comeTime = 2f;
+    private Vector3 start;
+    private Vector3 end;
 
     // Variables pour gérer l'audio et le mouvement
     public FMOD.Studio.EventInstance npcAudioInstance;
+
     private Vector3 lastPlayerPosition;
     private bool isDialoguePlaying = false;
 
@@ -142,14 +143,13 @@ public class NPC : MonoBehaviour
         }
     }
 
-    IEnumerator DelayedDialogue(string subtitleName)
+    private IEnumerator DelayedDialogue(string subtitleName)
     {
         string completeName = dialoguesStates.Last() == true && subtitleName.Last() != 'P' ? " (" + npcTrueName + ")" : "";
         yield return new WaitForSeconds(comeTime);
         yield return new WaitUntil(door.IsOpen);
 
         SubtitleManager.instance.InvokeSubTitle(subtitleName, NameTranslate.names[npcName] + completeName);
-
 
         // Jouer l'audio du NPC
         PlayNpcDialogueAudio();
@@ -211,16 +211,22 @@ public class NPC : MonoBehaviour
         {
             case "pretre":
                 return FmodEvents.instance.Priest;
+
             case "veuve":
                 return FmodEvents.instance.Widow;
+
             case "vieille":
                 return FmodEvents.instance.OldWoman;
+
             case "nain":
-                return FmodEvents.instance.Dwarf;   
+                return FmodEvents.instance.Dwarf;
+
             case "boucher":
                 return FmodEvents.instance.Butcher;
+
             case "sportif":
                 return FmodEvents.instance.Athlete;
+
             default:
                 return FmodEvents.instance.Null;
         }

@@ -33,8 +33,9 @@ public class ScheduleManager : Singleton<ScheduleManager>
     private List<string>[,] list = new List<string>[7, 4];
 
     // Start is called before the first frame update
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         //var obj = Resources.Load(filepath) as TextAsset;
 
         if (filepath.NullIfEmpty() == null)

@@ -36,9 +36,10 @@ public class PlayerControl : MonoBehaviour
 
     //Audio
     private EventInstance PlayerFootSteps;
+
     private EventInstance PlayerFootStepsSprint;
 
-    #endregion
+    #endregion Properties
 
     #region Getters & Setters
 
@@ -48,12 +49,16 @@ public class PlayerControl : MonoBehaviour
     public Inventory Inventory { get => inventory; }
     public bool Interacting { get => interacting; set => interacting = value; }
 
-    #endregion
+    #endregion Getters & Setters
 
     #region Methods
 
     private void OnEnable()
     {
+        if (playerInputAction == null)
+        {
+            playerInputAction = new PlayerInputs();
+        }
         playerInputAction.InGame.Enable();
 
         playerInputAction.InGame.Sprint.started += (context) => speed = runSpeed;
@@ -74,7 +79,10 @@ public class PlayerControl : MonoBehaviour
 
     private void Awake()
     {
-        playerInputAction = new PlayerInputs();
+        if (playerInputAction == null)
+        {
+            playerInputAction = new PlayerInputs();
+        }
         rb = GetComponent<Rigidbody>();
         cameraControl = GetComponentInChildren<CameraControl>();
         speed = walkSpeed;
@@ -99,7 +107,6 @@ public class PlayerControl : MonoBehaviour
         //audio
         PlayerFootSteps = AudioManager.instance.CreateInstance(FmodEvents.instance.PlayerFootSteps);
         PlayerFootStepsSprint = AudioManager.instance.CreateInstance(FmodEvents.instance.PlayerFootStepsSprint);
-
     }
 
     private void Update()
@@ -141,7 +148,6 @@ public class PlayerControl : MonoBehaviour
         UpdateSound();
     }
 
-
     private void SetInputs()
     {
         inputs = playerInputAction.InGame.Movement.ReadValue<Vector2>();
@@ -163,7 +169,6 @@ public class PlayerControl : MonoBehaviour
             {
                 return hit;
             }
-            
         }
 
         return null;
@@ -201,12 +206,11 @@ public class PlayerControl : MonoBehaviour
         if (interactable == null)
         {
             Debug.LogWarning("[Interaction] NULL object");
-        } 
+        }
         else
         {
             interactable.Interact();
         }
-
     }
 
     private void StopInteract(InputAction.CallbackContext _context)
@@ -318,7 +322,6 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-
 #if UNITY_EDITOR
 
     private void OnGUI()
@@ -330,6 +333,5 @@ public class PlayerControl : MonoBehaviour
 
 #endif
 
-    #endregion
-
+    #endregion Methods
 }
