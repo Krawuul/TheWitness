@@ -59,7 +59,7 @@ public class Phone : MonoBehaviour, IInteractable
             }
             else
             {
-                if (PhoneVoice.isValid())
+                if (PhoneVoice.isValid() && !SubtitleManager.instance.subtitlePlaying)
                 {
                     PhoneVoice.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                     PhoneVoice.release();
