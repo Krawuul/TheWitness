@@ -8,9 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 7159108a75369124fb0d3e85a338e879
-  m_OcclusionCullingData: {fileID: 36300000, guid: 522473f12eca10b46928f54efe2b8aae,
-    type: 2}
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -7645,10 +7644,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 587360748}
-    - targetCorrespondingSourceObject: {fileID: 6218112793570772875, guid: 0f8ed92fc5871ee4c852d4197598554d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 587360752}
   m_SourcePrefab: {fileID: 100100000, guid: 0f8ed92fc5871ee4c852d4197598554d, type: 3}
 --- !u!1 &69985662 stripped
 GameObject:
@@ -20581,7 +20576,7 @@ MonoBehaviour:
   gameTime:
     day: 0
     timestep: 0
-  gameCheckPoint: 0
+  gameCheckPoint: 8
   endstarted: 0
 --- !u!4 &460735033
 Transform:
@@ -22580,19 +22575,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2527337, y: 0.10559523, z: 0.2136383}
   m_Center: {x: 0.00000023841858, y: 0.9740606, z: 0}
---- !u!114 &587360752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 587360747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b305f2d0b159aaa4a99bdad9327eae36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkPoints: 04000000090000000f00000010000000
 --- !u!1 &587772849 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5156951636809006680, guid: 0973bf9b57aa8204898ada0a82e5cbe4,
