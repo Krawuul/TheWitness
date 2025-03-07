@@ -3,10 +3,10 @@ using Manager;
 using System.Linq;
 using UnityEngine;
 
-public class Phone : MonoBehaviour,IInteractable
+public class Phone : MonoBehaviour, IInteractable
 {
-    [SerializeField] int[] checkPoints;
-    bool ring = false;
+    [SerializeField] private int[] checkPoints;
+    private bool ring = false;
 
     //Audio
     private EventInstance PhoneRing;
@@ -15,11 +15,11 @@ public class Phone : MonoBehaviour,IInteractable
     {
         //audio
         PhoneRing = AudioManager.instance.CreateInstance(FmodEvents.instance.PhoneRing);
-
     }
+
     public void Interact()
     {
-        if(ring && !SubtitleManager.instance.subtitlePlaying)
+        if (ring && !SubtitleManager.instance.subtitlePlaying)
         {
             PhoneRing.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(this.transform.position));
             PhoneRing.stop(STOP_MODE.ALLOWFADEOUT);
@@ -29,9 +29,9 @@ public class Phone : MonoBehaviour,IInteractable
 
             AudioManager.instance.PlayOneShot(FmodEvents.instance.PhoneVoice, this.transform.position);
 
-            for (int i = 0; i < checkPoints.Length; i++) 
+            for (int i = 0; i < checkPoints.Length; i++)
             {
-                if(GameManager.instance.GameCheckPoint == checkPoints[i])
+                if (GameManager.instance.GameCheckPoint == checkPoints[i])
                 {
                     checkPoints[i] = -10;
                 }
@@ -39,17 +39,22 @@ public class Phone : MonoBehaviour,IInteractable
         }
     }
 
-
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(!ring && checkPoints.Contains( GameManager.instance.GameCheckPoint) )
+        if (!ring)
         {
-            ring = true;
+            if (checkPoints.Contains(GameManager.instance.GameCheckPoint))
+            {
+                ring = true;
 
-            PhoneRing.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(this.transform.position));
-            PhoneRing.start();
-
+                PhoneRing.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(this.transform.position));
+                PhoneRing.start();
+            }
+            else
+            {
+                AudioManager.instance.StopSound(FmodEvents.instance.PhoneVoice);
+            }
         }
     }
 }
