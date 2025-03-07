@@ -14,28 +14,31 @@ public class GameManager : Singleton<GameManager>
     private PlayerControl player;
     private Notebook notebookUI;
     private bool inMenu = false;
+
     [Serializable]
     public struct GameTime
     {
         public ScheduleManager.DAYS day;
-        public ScheduleManager.TIMESTEP timestep ;
+        public ScheduleManager.TIMESTEP timestep;
     }
-    [SerializeField] private GameTime gameTime ;
-    [SerializeField] private int gameCheckPoint =0;
+
+    [SerializeField] private GameTime gameTime;
+    [SerializeField] private int gameCheckPoint = 0;
     private int nbNpcs = 7;
     private int npcVisited = 0;
-    Vector3 startPos;
-    bool endstarted = false;
-    #endregion
+    private Vector3 startPos;
+    public bool endstarted = false;
+
+    #endregion Properties
 
     #region Getters & Setters
 
-    public PlayerControl Player { get =>  player; }
+    public PlayerControl Player { get => player; }
     public Notebook Notebook { get => notebookUI; }
     public int GameCheckPoint { get => gameCheckPoint; set => gameCheckPoint = value; }
     public bool InMenu { get => inMenu; }
 
-    #endregion
+    #endregion Getters & Setters
 
     #region Methods
 
@@ -52,7 +55,7 @@ public class GameManager : Singleton<GameManager>
         {
             foreach (var door in GameObject.FindObjectsOfType<Door>())
             {
-                if(door.IsOpen())
+                if (door.IsOpen())
                 {
                     door.Interact();
                 }
@@ -60,11 +63,10 @@ public class GameManager : Singleton<GameManager>
         });
         doorsShutDown.AddListener(() =>
         {
-            if (gameCheckPoint == 16)
+            if (gameCheckPoint == 17)
             {
                 StartCoroutine(EndGame());
             }
-
         });
         doorsShutDown.AddListener(() =>
         {
@@ -80,25 +82,25 @@ public class GameManager : Singleton<GameManager>
         doorsShutDown.AddListener(NextTimeStep);
         eventManager.events.Add("PRESENTATION", presentationEvent);
         eventManager.events.Add("ALL_DIALOGUE", doorsShutDown);
-        
+
         gameTime.day = ScheduleManager.DAYS.SATURDAY;
         startPos = player.transform.position;
-        
     }
-    IEnumerator EndGame()
+
+    public IEnumerator EndGame()
     {
         endstarted = true;
-        yield return new WaitForSeconds(30f);
-
+        yield return new WaitForSeconds(15f);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene(0);
     }
-
 
     private void Start()
     {
         SubtitleManager.instance.InvokeSubTitle("INTRO", "Narrator");
-
     }
+
     public void OpenCloseInventory()
     {
         if (notebookUI.gameObject.activeSelf)
@@ -106,7 +108,7 @@ public class GameManager : Singleton<GameManager>
             notebookUI.gameObject.SetActive(false);
             inMenu = false;
             SetCursorLockState(true);
-        } 
+        }
         else
         {
             notebookUI.gameObject.SetActive(true);
@@ -134,7 +136,7 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(PlacePlayer());
     }
 
-    IEnumerator PlacePlayer()
+    private IEnumerator PlacePlayer()
     {
         yield return new WaitForSeconds(2.5f);
         player.transform.position = startPos;
@@ -143,7 +145,7 @@ public class GameManager : Singleton<GameManager>
     public void NextTimeStep()
     {
         gameTime.timestep = (ScheduleManager.TIMESTEP)(((int)gameTime.timestep + 1) % (int)ScheduleManager.TIMESTEP.COUNT);
-        if(gameTime.timestep == ScheduleManager.TIMESTEP.MORNING)
+        if (gameTime.timestep == ScheduleManager.TIMESTEP.MORNING)
         {
             NextDay();
         }
@@ -151,27 +153,29 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        if(gameCheckPoint == 16 && !SubtitleManager.instance.subtitlePlaying && !endstarted)
-        {
-            SubtitleManager.instance.InvokeSubTitle("E16", "The Phone");
-        }
+        //if (gameCheckPoint == 16 && !SubtitleManager.instance.subtitlePlaying && !endstarted)
+        //{
+        //    SubtitleManager.instance.InvokeSubTitle("E16", "The Phone");
+        //}
     }
 
     public void OnNextStep()
     {
         Debug.Log(gameCheckPoint);
-        if(gameCheckPoint == 0)
+        if (gameCheckPoint == 0)
         {
             npcVisited++;
-            if(npcVisited == nbNpcs)
+            if (npcVisited == nbNpcs)
             {
                 gameCheckPoint++;
                 Debug.Log(gameCheckPoint);
             }
-        }else
+        }
+        else
         {
             gameCheckPoint++;
         }
     }
-    #endregion
+
+    #endregion Methods
 }
